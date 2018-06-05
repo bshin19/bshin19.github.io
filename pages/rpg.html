@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>RPG Battle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Precautionary clear Default Styles-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/reset.css" />
+
+    <!--Bootstrap Scripts/Styles-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <!--Custom Scripts/Styles-->
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/rpgstyle.css" />
+    <script src="../assets/javascript/rpg-game.js"></script>
+
+</head>
+
+<body>
+
+    <!--Bootstrap NavBar inserted and modified for personal use-->
+    <nav class="navbar navbar-expand-lg">
+        <div class="navbar-brand bg-danger">
+            Brady Shinners
+        </div>
+
+        <button class="navbar-toggler bg-danger" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../portfolio.html">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--Rest of body following NavBar-->
+    <div class="container">
+        <div class="row">
+            <h1 class="col-md-12 col-sm-12">
+                RPG Game
+            </h1>
+        </div>
+
+        <!--Row 1: 
+            Collapsing Row with Javascript
+            that allows a user who hasn't chosen their
+            hero to choose their hero-->
+        <div class="row" id="charChooser">
+
+        </div>
+
+        <!--Row 2:
+            Arena. User hero left, foe hero right-->
+        <div class="row" id="arena">
+
+            <!--Ally info column gets filled with Jquery following choice-->
+            <div class="col-md-4 col-sm-4" id="playerSide">
+
+            </div>
+
+            <!--Option select section-->
+            <div class="col-md-4 col-sm-2" id="rpgInfo">
+                <button type="button" class="btn btn-danger rpgBut">Attack</button><br><br>
+                <button type="button" class="btn btn-primary rpgBut">Elixir</button><br><br>
+                <button type="button" class="btn btn-success rpgBut">Guard</button><br><br>
+                <button type="button" class="btn btn-warning rpgBut">Call Ally</button>
+            </div>
+
+            <!--Foe info column: Jquery filled-->
+            <div class="col-md-4 col-sm-5">
+
+            </div>
+        </div>
+
+        <!--Row 3:
+            Foe Selector Bar. Collapses and builds
+            w/ Javascript. Shows after hero is
+            selected. Hides after foe selected-->
+        <div class ="row" id="Foe Selector">
+
+        </div>
+
+</body>
+
+</html>
