@@ -25,6 +25,15 @@ body {
     max-width: 100%;
 }
 
+.foeImage {
+    min-height: 306px;
+    max-height: 306px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;
+}
+
 .botBox {
     border-radius: 0 0 15px 15px;
 }
@@ -35,4 +44,9 @@ body {
 
 .clickChar:hover {
     cursor: pointer;
+}
+
+#rerollButton {
+    text-align: center;
+    color: black;
 }
