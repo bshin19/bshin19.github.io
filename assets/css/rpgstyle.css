@@ -1,5 +1,6 @@
 body {
     background: url("../images/rpg-game/firebg.jpg") center;
+    color: gold;
 }
 
 .container {
@@ -7,9 +8,13 @@ body {
     border-color: gray;
 }
 
+.centerGold {
+    text-align: center;
+    color: gold;
+}
+
 #rpgInfo {
     text-align: center;
-    margin: auto;
 }
 
 .charText {
@@ -21,7 +26,7 @@ body {
 }
 
 .charImage {
-    max-height: auto;
+    max-height: 423 px;
     max-width: 100%;
 }
 
@@ -49,4 +54,39 @@ body {
 #rerollButton {
     text-align: center;
     color: black;
+}
+
+#combatLog {
+    background-color: gray;
+    color: gold;
+    border: 1px green solid;
+}
+
+label {
+    color: gold;
+}
+
+#btnAtk {
+    color: gold;
+}
+
+#btnHeal {
+    color: gold;
+}
+
+#btnGuard {
+    color: gold;
+}
+
+#btnPlay {
+    color: gold;
+}
+
+#btnStop {
+    color: gold;
+}
+
+#musPtr {
+    text-align: center;
+    margin: auto;
 }
