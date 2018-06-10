@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
     //Initialize path to be used on all assets
-    var pathway = "../assets/images/rpg-game/"
+    var portPath = "../assets/images/rpg-game/portrait/";
+    var animPath = "../assets/images/rpg-game/fight/";
+    var staticPath = "../assets/images/rpg-game/static/";
 
 
     //Player Objects Begin Here:
@@ -22,9 +24,11 @@ $(document).ready(function () {
         spdgr: 80,
         defgr: 35,
         resgr: 40,
-        portrait: pathway + "portrait/lyn.jpg",
-        anim: pathway + "fight/lyn.gif",
-        animCrit: pathway + "fight/lyn_crit.gif",
+        portrait: portPath + "lyn.jpg",
+        anim: animPath + "lyn.gif",
+        animCrit: animPath + "lyn_crit.gif",
+        animStatic: staticPath + "lyn.png",
+        animState: "still",
         isChosen: false,
         guard: false,
         animSpell: "",
@@ -51,9 +55,11 @@ $(document).ready(function () {
         spdgr: 30,
         defgr: 60,
         resgr: 10,
-        portrait: pathway + "portrait/hector.jpg",
-        anim: pathway + "fight/hector.gif",
-        animCrit: pathway + "fight/lyn_crit.gif",
+        portrait: portPath + "hector.jpg",
+        anim: animPath + "hector.gif",
+        animCrit: animPath + "hector_crit.gif",
+        animStatic: staticPath + "hector.png",
+        animState: "still",
         isChosen: false,
         guard: false,
         animSpell: "",
@@ -80,9 +86,11 @@ $(document).ready(function () {
         spdgr: 50,
         defgr: 50,
         resgr: 50,
-        portrait: pathway + "portrait/eliwood.jpg",
-        anim: pathway + "fight/eliwood.gif",
-        animCrit: pathway + "fight/eliwood_crit.gif",
+        portrait: portPath + "eliwood.jpg",
+        anim: animPath + "eliwood.gif",
+        animCrit: animPath + "eliwood_crit.gif",
+        animStatic: staticPath + "eliwood.png",
+        animState: "still",
         isChosen: false,
         guard: false,
         animSpell: "",
@@ -109,9 +117,11 @@ $(document).ready(function () {
         spdgr: 70,
         defgr: 70,
         resgr: 70,
-        portrait: pathway + "portrait/roy.jpg",
-        anim: pathway + "fight/roy.gif",
-        animCrit: pathway + "fight/roy_crit.gif",
+        portrait: portPath + "roy.jpg",
+        anim: animPath + "roy.gif",
+        animCrit: animPath + "roy_crit.gif",
+        animStatic: staticPath + "roy.png",
+        animState: "still",
         isChosen: false,
         guard: false,
         animSpell: "",
@@ -137,9 +147,10 @@ $(document).ready(function () {
         spdgr: 0,
         defgr: 0,
         resgr: 0,
-        portrait: pathway + "portrait/athos.jpg",
-        anim: pathway + "fight/athos.gif",
-        animCrit: pathway + "fight/eliwood_crit.gif",
+        portrait: portPath + "athos.jpg",
+        anim: animPath + "athos.gif",
+        animStatic: staticPath + "athos.png",
+        animState: "still",
         isChosen: false,
         guard: false,
         animSpell: "",
@@ -162,8 +173,10 @@ $(document).ready(function () {
         atk: 9,
         spd: 2,
         def: 0,
-        portrait: pathway + "portrait/entombed.png",
-        anim: pathway + "fight/entombed.gif",
+        portrait: portPath + "entombed.png",
+        anim: animPath + "entombed.gif",
+        animStatic: staticPath + "entombed.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -175,8 +188,10 @@ $(document).ready(function () {
         atk: 12,
         spd: 5,
         def: 2,
-        portrait: pathway + "portrait/bael.png",
-        anim: pathway + "fight/bael.gif",
+        portrait: portPath + "bael.png",
+        anim: animPath + "bael.gif",
+        animStatic: staticPath + "bael.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -188,8 +203,10 @@ $(document).ready(function () {
         atk: 10,
         spd: 15,
         def: 0,
-        portrait: pathway + "portrait/mauthedoog.png",
-        anim: pathway + "fight/mauthedoog.gif",
+        portrait: portPath + "mauthedoog.png",
+        anim: animPath + "mauthedoog.gif",
+        animStatic: staticPath + "mauthedoog.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -201,8 +218,10 @@ $(document).ready(function () {
         atk: 12,
         spd: 6,
         def: 7,
-        portrait: pathway + "portrait/deathgoyle.png",
-        anim: pathway + "fight/deathgoyle.gif",
+        portrait: portPath + "deathgoyle.png",
+        anim: animPath + "deathgoyle.gif",
+        animStatic: staticPath + "deathgoyle.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -214,8 +233,10 @@ $(document).ready(function () {
         atk: 14,
         spd: 19,
         def: 2,
-        portrait: pathway + "portrait/gwyllgi.jpg",
-        anim: pathway + "fight/gwyllgi.gif",
+        portrait: portPath + "gwyllgi.jpg",
+        anim: animPath + "gwyllgi.gif",
+        animStatic: staticPath + "gwyllgi.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -227,8 +248,10 @@ $(document).ready(function () {
         atk: 20,
         spd: 5,
         def: 4,
-        portrait: pathway + "portrait/cyclops.jpg",
-        anim: pathway + "fight/cyclops.gif",
+        portrait: portPath + "cyclops.jpg",
+        anim: animPath + "cyclops.gif",
+        animStatic: staticPath + "cyclops.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -240,8 +263,10 @@ $(document).ready(function () {
         atk: 18,
         spd: 12,
         def: 5,
-        portrait: pathway + "portrait/draco-zombie.png",
-        anim: pathway + "fight/draco-zombie.gif",
+        portrait: portPath + "dracozombie.png",
+        anim: animPath + "dracozombie.gif",
+        animStatic: staticPath + "dracozombie.png",
+        animState = "still",
         animSpell: true
     };
 
@@ -253,8 +278,10 @@ $(document).ready(function () {
         atk: 21,
         spd: 15,
         def: 7,
-        portrait: pathway + "portrait/fire_dragon.jpg",
-        anim: pathway + "fight/draco-zombie.gif",
+        portrait: portPath + "firedragon.jpg",
+        anim: animPath + "firedragon.gif",
+        animStatic: staticPath + "firedragon.png",
+        animState = "still",
         animSpell: true
     };
 
@@ -266,8 +293,10 @@ $(document).ready(function () {
         atk: 30,
         spd: 10,
         def: 10,
-        portrait: pathway + "portrait/idunn.png",
-        anim: pathway + "fight/idunn.gif",
+        portrait: portPath + "idunn.png",
+        anim: animPath + "idunn.gif",
+        animStatic: staticPath + "idunn.png",
+        animState = "still",
         animSpell: true
     }
 
@@ -279,8 +308,10 @@ $(document).ready(function () {
         atk: 20,
         spd: 24,
         def: 5,
-        portrait: pathway + "portrait/jaffar.png",
-        anim: pathway + "fight/jaffar.gif",
+        portrait: portPath + "jaffar.png",
+        anim: animPath + "jaffar.gif",
+        animStatic: staticPath + "jaffar.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -292,8 +323,10 @@ $(document).ready(function () {
         atk: 22,
         spd: 14,
         def: 7,
-        portrait: pathway + "portrait/linus.png",
-        anim: pathway + "fight/linus.gif",
+        portrait: portPath + "linus.png",
+        anim: animPath + "linus.gif",
+        animStatic: staticPath + "linus.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -305,8 +338,10 @@ $(document).ready(function () {
         atk: 15,
         spd: 23,
         def: 5,
-        portrait: pathway + "portrait/lloyd.jpg",
-        anim: pathway + "fight/lloyd.gif",
+        portrait: portPath + "lloyd.jpg",
+        anim: animPath + "lloyd.gif",
+        animStatic: staticPath + "lloyd.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -318,8 +353,10 @@ $(document).ready(function () {
         atk: 14,
         spd: 20,
         def: 4,
-        portrait: pathway + "portrait/ursula.jpg",
-        anim: pathway + "fight/ursula.gif",
+        portrait: portPath + "ursula.jpg",
+        anim: animPath + "ursula.gif",
+        animStatic: staticPath + "ursula.png",
+        animState = "still",
         animSpell: true
     };
 
@@ -331,8 +368,10 @@ $(document).ready(function () {
         atk: 23,
         spd: 12,
         def: 8,
-        portrait: pathway + "portrait/lyon.jpg",
-        anim: pathway + "fight/lyon.gif",
+        portrait: portPath + "lyon.jpg",
+        anim: animPath + "lyon.gif",
+        animStatic: staticPath + "lyon.png",
+        animState = "still",
         animSpell: true
     };
 
@@ -344,8 +383,10 @@ $(document).ready(function () {
         atk: 25,
         spd: 7,
         def: 11,
-        portrait: pathway + "portrait/nergal.png",
-        anim: pathway + "fight/nergal.gif",
+        portrait: portPath + "nergal.png",
+        anim: animPath + "nergal.gif",
+        animStatic: staticPath + "nergal.png",
+        animState = "still",
         animSpell: true
     };
 
@@ -357,8 +398,10 @@ $(document).ready(function () {
         atk: 24,
         spd: 3,
         def: 15,
-        portrait: pathway + "portrait/zephiel.jpg",
-        anim: pathway + "fight/zephiel.gif",
+        portrait: portPath + "zephiel.jpg",
+        anim: animPath + "zephiel.gif",
+        animStatic: staticPath + "zephiel.png",
+        animState = "still",
         animSpell: false
     };
 
@@ -538,6 +581,9 @@ $(document).ready(function () {
         if (attacker === chosenOne) {
             $("#combatArea").html("<img class='col-6'> src=" + 
             "<canvas class='col-6'>")
+
+            //move prof box with attack $("#box").animate({marginLeft: "300px"});
+            //audio on hit http://soundbible.com/grab.php?id=995&type=wav
         }
         
     };

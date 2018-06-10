@@ -1,0 +1,39 @@
+.triviaQ {
+    font-size: 2em;
+    color: black;
+    text-align: center;
+}
+
+#btnPlay {
+    display: block;
+    margin: auto;
+}
+
+.centerGif {
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.centerText {
+    text-align: center;
+}
+
+body {
+    background-image: url("../images/dragontrivia.jpg");
+    background-size: cover;
+}
+
+.container {
+    background-color: lightblue;
+    min-height: 400px;
+    opacity: .7;
+}
+
+.answer {
+    opacity: 1;
+}
