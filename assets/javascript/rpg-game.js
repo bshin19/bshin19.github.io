@@ -176,7 +176,7 @@ $(document).ready(function () {
         portrait: portPath + "entombed.png",
         anim: animPath + "entombed.gif",
         animStatic: staticPath + "entombed.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -191,7 +191,7 @@ $(document).ready(function () {
         portrait: portPath + "bael.png",
         anim: animPath + "bael.gif",
         animStatic: staticPath + "bael.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -206,7 +206,7 @@ $(document).ready(function () {
         portrait: portPath + "mauthedoog.png",
         anim: animPath + "mauthedoog.gif",
         animStatic: staticPath + "mauthedoog.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -221,7 +221,7 @@ $(document).ready(function () {
         portrait: portPath + "deathgoyle.png",
         anim: animPath + "deathgoyle.gif",
         animStatic: staticPath + "deathgoyle.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -236,7 +236,7 @@ $(document).ready(function () {
         portrait: portPath + "gwyllgi.jpg",
         anim: animPath + "gwyllgi.gif",
         animStatic: staticPath + "gwyllgi.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -251,7 +251,7 @@ $(document).ready(function () {
         portrait: portPath + "cyclops.jpg",
         anim: animPath + "cyclops.gif",
         animStatic: staticPath + "cyclops.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -266,7 +266,7 @@ $(document).ready(function () {
         portrait: portPath + "dracozombie.png",
         anim: animPath + "dracozombie.gif",
         animStatic: staticPath + "dracozombie.png",
-        animState = "still",
+        animState: "still",
         animSpell: true
     };
 
@@ -281,7 +281,7 @@ $(document).ready(function () {
         portrait: portPath + "firedragon.jpg",
         anim: animPath + "firedragon.gif",
         animStatic: staticPath + "firedragon.png",
-        animState = "still",
+        animState: "still",
         animSpell: true
     };
 
@@ -296,7 +296,7 @@ $(document).ready(function () {
         portrait: portPath + "idunn.png",
         anim: animPath + "idunn.gif",
         animStatic: staticPath + "idunn.png",
-        animState = "still",
+        animState: "still",
         animSpell: true
     }
 
@@ -311,7 +311,7 @@ $(document).ready(function () {
         portrait: portPath + "jaffar.png",
         anim: animPath + "jaffar.gif",
         animStatic: staticPath + "jaffar.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -326,7 +326,7 @@ $(document).ready(function () {
         portrait: portPath + "linus.png",
         anim: animPath + "linus.gif",
         animStatic: staticPath + "linus.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -341,7 +341,7 @@ $(document).ready(function () {
         portrait: portPath + "lloyd.jpg",
         anim: animPath + "lloyd.gif",
         animStatic: staticPath + "lloyd.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -356,7 +356,7 @@ $(document).ready(function () {
         portrait: portPath + "ursula.jpg",
         anim: animPath + "ursula.gif",
         animStatic: staticPath + "ursula.png",
-        animState = "still",
+        animState: "still",
         animSpell: true
     };
 
@@ -371,7 +371,7 @@ $(document).ready(function () {
         portrait: portPath + "lyon.jpg",
         anim: animPath + "lyon.gif",
         animStatic: staticPath + "lyon.png",
-        animState = "still",
+        animState: "still",
         animSpell: true
     };
 
@@ -386,7 +386,7 @@ $(document).ready(function () {
         portrait: portPath + "nergal.png",
         anim: animPath + "nergal.gif",
         animStatic: staticPath + "nergal.png",
-        animState = "still",
+        animState: "still",
         animSpell: true
     };
 
@@ -401,7 +401,7 @@ $(document).ready(function () {
         portrait: portPath + "zephiel.jpg",
         anim: animPath + "zephiel.gif",
         animStatic: staticPath + "zephiel.png",
-        animState = "still",
+        animState: "still",
         animSpell: false
     };
 
@@ -433,7 +433,7 @@ $(document).ready(function () {
         $("#rerollButton").empty();
         chosenFoe = chosenFoes[value];
         //console.log(chosenFoe);
-        fillFArena(chosenFoe);
+        fillArena(chosenFoe, "#foeSide");
     }
 
     //Sets the character chosen based on value sent
@@ -442,7 +442,7 @@ $(document).ready(function () {
         $("#charChooser").empty();
         chosenOne = char[value];
         //console.log(chosenOne);
-        fillPArena(chosenOne);
+        fillArena(chosenOne, "#playerSide");
         setFoeOpt();
         makeReRollable();
     };
@@ -461,9 +461,47 @@ $(document).ready(function () {
             profBuilder(unit.def, "Defense: ", "</div><br></div>"));
     }
 
+    //Attempting to combine similar code by merging fillFArena and fillPArena
+    function fillArena(unit, divSide) {
+        $(divSide).empty();
+
+        //Displays name with upper corners of box rounded
+        var topInfo = $("<div>");
+        topInfo.attr("class", "charText topBox");
+        topInfo.html(unit.name);
+        console.log(topInfo);
+
+        //Displays portrait in the middle
+        var portrInfo = $("<img>");
+        portrInfo.attr("class", "charImage");
+        portrInfo.attr("src", unit.portrait);
+
+        //Displays the rest of the info at the bottom with rounded lower corners
+        var botInfo = $("<div>");
+        botInfo.attr("class", "charText botBox");
+        botInfo += profBuilder(unit.level, "Level: ", "<br>");
+        botInfo += profBuilder(unit.hp, "HP: ", "");
+        botInfo += profBuilder(unit.maxHP, " / ", "<br>");
+        botInfo += profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;");
+        botInfo += profBuilder(unit.spd, "Speed: ", "<br>");
+        botInfo += profBuilder(unit.def, "Defense: ", "<br>");
+        console.log(unit.res);
+        if (unit.hasOwnProperty(unit.res)) {
+            botInfo += profBuilder(unit.res, "Resistance: ", "")
+        };
+        botInfo += "<br>";
+
+        $(divSide).append(
+            topInfo + portrInfo + botInfo)
+    };
+
+    //Sets and returns parameters
+    function profBuilder(stat, statText, spacingText) {
+        return statText + stat + spacingText;
+    };
+
     function fillPArena(unit) {
         $("#playerSide").empty();
-        $("#charInstruct").empty();
         $("#playerSide").append(
             profBuilder(unit.name, "<div class='charText topBox'>", "</div>") +
             profBuilder(unit.portrait, "<img class = 'charImage' src =", ">") +
@@ -493,11 +531,6 @@ $(document).ready(function () {
             //Only push to list after checking if foe is already on list.
             chosenFoes.push(newFoe);
         };
-    };
-
-    //Sets and returns parameters
-    function profBuilder(stat, statText, spacingText) {
-        return statText + stat + spacingText;
     };
 
     //Builds Character Chooser
@@ -534,7 +567,7 @@ $(document).ready(function () {
             for (var i = 0; i < 4; i++) {
                 console.log("build foes:" + chosenFoes[i].name);
                 $("#foeSelector").append(
-                    "<div class='col-sm-12 col-md-12 col-lg-3 mainfoe' data-char=" + chosenFoes[i].name + ">" +
+                    "<div class='col-sm-6 col-md-3 col-lg-3 mainfoe' data-char=" + chosenFoes[i].name + ">" +
                     profBuilder(chosenFoes[i].name, "<div class='charText topBox clickChar'>", "</div>") +
                     profBuilder(chosenFoes[i].portrait, "<img class = 'foeImage clickChar' src =", ">") +
                     "<div class='charText botBox clickChar'>" +
@@ -557,7 +590,7 @@ $(document).ready(function () {
         chosenOne.atk = statup(chosenOne.atkgr, chosenOne.atk, " Atk +1! ");
         chosenOne.maxHP = statup(chosenOne.hpgr, chosenOne.maxHP, "HP +1! ");
         $("#combatLog").prepend(chosenOne.name + " leveled up!\r\n");
-        fillPArena(chosenOne);
+        fillArena(chosenOne, "#playerSide");
     };
 
     //Percentagewise increase of stats
@@ -579,13 +612,13 @@ $(document).ready(function () {
         }
         var defgif = defender.anim;
         if (attacker === chosenOne) {
-            $("#combatArea").html("<img class='col-6'> src=" + 
-            "<canvas class='col-6'>")
+            $("#combatArea").html("<img class='col-6'> src=" +
+                "<canvas class='col-6'>")
 
             //move prof box with attack $("#box").animate({marginLeft: "300px"});
             //audio on hit http://soundbible.com/grab.php?id=995&type=wav
         }
-        
+
     };
 
 
@@ -604,7 +637,7 @@ $(document).ready(function () {
             combatText(hero, chosenFoe, atkDamage, "");
         }
         chosenFoe.hp -= noNegAtk(atkDamage);
-        fillFArena(chosenFoe);
+        fillArena(chosenFoe, "#foeSide");
     };
 
     //Does the math for foe attack
@@ -618,7 +651,7 @@ $(document).ready(function () {
         }
         chosenOne.hp -= noNegAtk(foeDam);
         combatText(chosenFoe, chosenOne, foeDam, "");
-        fillPArena(chosenOne);
+        fillArena(chosenOne, "#playerSide");
     };
 
     //Sends combat info to be displayed in the log.
@@ -780,7 +813,7 @@ $(document).ready(function () {
                     chosenOne.hp = chosenOne.maxHP;
                     elixLog(chosenOne.elixirs);
                     chosenOne.guard = true;
-                    fillPArena(chosenOne);
+                    fillArena(chosenOne, "#playerSide");
                     if (chosenFoe != null && chosenFoe != "") {
                         foeAttack();
                     };
@@ -809,7 +842,7 @@ $(document).ready(function () {
                     chosenOne.allyCalls--;
                     chosenOne.hp = chosenOne.maxHP;
                     chosenOne.guard = true;
-                    fillPArena(chosenOne);
+                    fillArena(chosenOne, "#playerSide");
                     //heroAttack(chosenOne.ally[(Math.floor(Math.random() * 4))])
                 } else {
                     $("#combatLog").prepend("I am unable to call any further allies.\r\n");

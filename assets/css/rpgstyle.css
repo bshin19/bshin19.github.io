@@ -90,3 +90,9 @@ label {
     text-align: center;
     margin: auto;
 }
+
+.comBut {
+    min-width: 75px;
+    display: block;
+    margin: auto;
+}

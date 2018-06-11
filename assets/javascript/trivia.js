@@ -7,8 +7,8 @@ $(document).ready(function () {
     var time = 30;
     var winSound = new Audio("http://soundbible.com/grab.php?id=1003&type=mp3");
     var loseSound = new Audio("http://soundbible.com/grab.php?id=2054&type=mp3");
-    var gameOverSound = new Audio("http://www.thesoundarchive.com/ace/one/loser.mp3");
-    var victorySound = new Audio("location.href='http://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Not+to+be+truffled+with&filename=nz/Nzk0NTY0MDM5Nzk0NTkz_zUfJJIq_2bbzQ.mp3");
+    //var gameOverSound = new Audio("http://www.thesoundarchive.com/ace/one/loser.mp3");
+    //var victorySound = new Audio("location.href='http://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Not+to+be+truffled+with&filename=nz/Nzk0NTY0MDM5Nzk0NTkz_zUfJJIq_2bbzQ.mp3");
 
     function displayTimer() {
         time--;
@@ -17,7 +17,6 @@ $(document).ready(function () {
         if (time < 1) {
             $("#timer").html("<div class='centerText'>You've run out of time! Game Over...</div>");
             restartButton()
-            
         };
     };
 
@@ -25,6 +24,7 @@ $(document).ready(function () {
         clearTimeout(timeOn);
         $("#triviaPop").empty();
         score = 0;
+        question = 0;
         var triviaBut = $("<button>");
         triviaBut.attr("class", "btn btn-danger");
         triviaBut.attr("id", "btnPlay")
@@ -39,13 +39,6 @@ $(document).ready(function () {
             url: queryURL,
             method: "GET"
         }).then(function (response) {
-            while (response == null) {
-                $.ajax({
-                    url: queryURL,
-                    method: "GET"
-                }).then(function (response) {
-                })
-            }
             var correctAns = response.results[question].correct_answer;
             tempAnswer = correctAns;
             var possAns = [];
@@ -103,7 +96,7 @@ $(document).ready(function () {
                 image.attr("src", response.data[0].images.fixed_height.url);
                 $("#triviaPop").append(image);
                 $("#triviaPop").append("<div class='triviaQ'>" + tempAnswer + " was the correct choice!</div>");
-                $("#triviaPop").append("<div class='triviaQ'>Current score is " + score + " / 10</div>");
+                $("#triviaPop").append("<div class='triviaQ'>Current score is " + score + " / " + question + "</div>");
             });
 
         } else {
@@ -116,7 +109,7 @@ $(document).ready(function () {
                 image.attr("src", response.data[0].images.fixed_height.url);
                 $("#triviaPop").append(image);
                 $("#triviaPop").append("<div class='triviaQ'>" + tempAnswer + " was the correct choice.</div>");
-                $("#triviaPop").append("<div class='triviaQ'>Current score is " + score + " / 10</div>");
+                $("#triviaPop").append("<div class='triviaQ'>Current score is " + score + " / " + question + "</div>");
             });
         };
     };
@@ -129,7 +122,7 @@ $(document).ready(function () {
         clearTimeout(timeOn);
 
         if (question < 9) {
-            //console.log("next question");
+            console.log("Currently on question " + question);
             var winLose;
             if (this.getAttribute("data-correct") === "correct") {
                 console.log("true");
@@ -149,11 +142,11 @@ $(document).ready(function () {
             question++;
             setTimeout(initGame(), 6000);
         } else {
-            if (points < 7) {
-                gameOverSound.play();
-            } else {
-                victorySound.play();
-            }
+            // if (points < 7) {
+            //     gameOverSound.play();
+            // } else {
+            //     //victorySound.play();
+            // }
             var finTally = $("<div>");
             finTally.attr("class", "triviaQ");
             finTally.text("Your final score is: " + score + " / 10.");

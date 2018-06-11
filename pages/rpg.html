@@ -81,25 +81,52 @@
             </div>
 
             <!--Option select section-->
-            <div class="col-md-4 col-sm-2" id="rpgInfo">
-                <div id="combatArea">
-                    <!--This will be filled with combat gifs-->
+            <div class="col-lg-4 col-md-4 col-sm-4" id="rpgInfo">
+                <!--SubRow populated with combat gifs via JS-->
+                <div class="row" id="combatArea">
+                    <div class="col-6" id="playerAnim">
+                        <!--Player gif populates here-->
+                    </div>
+                    <div class="col-6" id="enemyAnim">
+                        <!--Enemy gif populates here-->
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="combatLog">Combat Log</label>
-                    <textarea class="form-control" id="combatLog" rows="4"></textarea>
+
+                <!--Combat Log with relevant user messages updated here-->
+                <div class="row">
+                    <div class="form-group col-12">
+                        <label for="combatLog">Combat Log</label>
+                        <textarea class="form-control" id="combatLog" rows="4"></textarea>
+                    </div>
                 </div>
-                <button type="button" class="btn btn-danger" id="btnAtk">Attack</button>
-                <br><br>
-                <button type="button" class="btn btn-primary" id="btnHeal">Elixir</button>
-                <br><br>
-                <button type="button" class="btn btn-success" id="btnGuard">Guard</button>
-                <br><br>
-                <button type="button" class="btn btn-warning" id="btnAlly">Call Ally</button>
-            </div><br><br>
+
+                <!--Buttons for user actions are set here.
+                    This could optionally be hidden if desired-->
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <button type="button" class="btn btn-danger btn-sm comBut" id="btnAtk">Attack</button>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <button type="button" class="btn btn-primary btn-sm comBut" id="btnHeal">Elixir</button>
+                    </div>
+                </div>
+
+                <!--Buttons part 2-->
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <button type="button" class="btn btn-success btn-sm comBut" id="btnGuard">Guard</button>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <button type="button" class="btn btn-warning btn-sm comBut" id="btnAlly">Call Ally</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <br>
+            <br>
 
             <!--Foe info column: Jquery filled-->
-            <div class="col-md-4 col-sm-5" id="foeSide">
+            <div class="col-md-4 col-sm-4" id="foeSide">
 
             </div>
         </div>
