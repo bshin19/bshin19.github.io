@@ -447,73 +447,37 @@ $(document).ready(function () {
         makeReRollable();
     };
 
-    function fillFArena(unit) {
-        $("#foeSide").empty();
-        $("#foeSide").append(
-            profBuilder(unit.name, "<div class='charText topBox'>", "</div>") +
-            profBuilder(unit.portrait, "<img class = 'charImage' src =", ">") +
-            "<div class='charText botBox'>" +
-            profBuilder(unit.level, "Level: ", "<br>") +
-            profBuilder(unit.hp, "HP: ", "") +
-            profBuilder(unit.maxHP, " / ", "<br>") +
-            profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;") +
-            profBuilder(unit.spd, "Speed: ", "<br>") +
-            profBuilder(unit.def, "Defense: ", "</div><br></div>"));
-    }
-
     //Attempting to combine similar code by merging fillFArena and fillPArena
     function fillArena(unit, divSide) {
         $(divSide).empty();
 
         //Displays name with upper corners of box rounded
-        var topInfo = $("<div>");
-        topInfo.attr("class", "charText topBox");
-        topInfo.html(unit.name);
-        console.log(topInfo);
+        var topInfo = unit.name;
 
         //Displays portrait in the middle
-        var portrInfo = $("<img>");
-        portrInfo.attr("class", "charImage");
-        portrInfo.attr("src", unit.portrait);
+        var portrInfo = unit.portrait;
 
         //Displays the rest of the info at the bottom with rounded lower corners
-        var botInfo = $("<div>");
-        botInfo.attr("class", "charText botBox");
-        botInfo += profBuilder(unit.level, "Level: ", "<br>");
+        var botInfo = profBuilder(unit.level, "Level: ", "<br>");
         botInfo += profBuilder(unit.hp, "HP: ", "");
         botInfo += profBuilder(unit.maxHP, " / ", "<br>");
         botInfo += profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;");
         botInfo += profBuilder(unit.spd, "Speed: ", "<br>");
-        botInfo += profBuilder(unit.def, "Defense: ", "<br>");
-        console.log(unit.res);
-        if (unit.hasOwnProperty(unit.res)) {
-            botInfo += profBuilder(unit.res, "Resistance: ", "")
+        botInfo += profBuilder(unit.def, "Defense: ", "");
+        if (unit.hasOwnProperty("res")) {
+            botInfo += profBuilder(unit.res, "&nbsp;&nbsp;Resistance: ", "");
         };
-        botInfo += "<br>";
 
         $(divSide).append(
-            topInfo + portrInfo + botInfo)
+            "<div class='charText topBox'>" + topInfo + "</div>" +
+            "<img class='charImage' src=" + portrInfo + ">" +
+            "<div class='charText botBox'>" + botInfo + "</div>")
     };
 
     //Sets and returns parameters
     function profBuilder(stat, statText, spacingText) {
         return statText + stat + spacingText;
     };
-
-    function fillPArena(unit) {
-        $("#playerSide").empty();
-        $("#playerSide").append(
-            profBuilder(unit.name, "<div class='charText topBox'>", "</div>") +
-            profBuilder(unit.portrait, "<img class = 'charImage' src =", ">") +
-            "<div class='charText botBox'>" +
-            profBuilder(unit.level, "Level: ", "<br>") +
-            profBuilder(unit.hp, "HP: ", "") +
-            profBuilder(unit.maxHP, " / ", "<br>") +
-            profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;") +
-            profBuilder(unit.spd, "Speed: ", "<br>") +
-            profBuilder(unit.def, "Defense: ", "&nbsp;&nbsp;") +
-            profBuilder(unit.res, "Resistance: ", "</div><br></div>"));
-    }
 
     //Places the reroll button on the page
     function makeReRollable() {
@@ -941,6 +905,36 @@ $(document).ready(function () {
         console.log("this click works");
         //foePick();
     })
+
+    function fillPArena(unit) {
+        $("#playerSide").empty();
+        $("#playerSide").append(
+            profBuilder(unit.name, "<div class='charText topBox'>", "</div>") +
+            profBuilder(unit.portrait, "<img class = 'charImage' src =", ">") +
+            "<div class='charText botBox'>" +
+            profBuilder(unit.level, "Level: ", "<br>") +
+            profBuilder(unit.hp, "HP: ", "") +
+            profBuilder(unit.maxHP, " / ", "<br>") +
+            profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;") +
+            profBuilder(unit.spd, "Speed: ", "<br>") +
+            profBuilder(unit.def, "Defense: ", "&nbsp;&nbsp;") +
+            profBuilder(unit.res, "Resistance: ", "</div><br></div>"));
+    }
+
+        function fillFArena(unit) {
+        $("#foeSide").empty();
+        $("#foeSide").append(
+            profBuilder(unit.name, "<div class='charText topBox'>", "</div>") +
+            profBuilder(unit.portrait, "<img class = 'charImage' src =", ">") +
+            "<div class='charText botBox'>" +
+            profBuilder(unit.level, "Level: ", "<br>") +
+            profBuilder(unit.hp, "HP: ", "") +
+            profBuilder(unit.maxHP, " / ", "<br>") +
+            profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;") +
+            profBuilder(unit.spd, "Speed: ", "<br>") +
+            profBuilder(unit.def, "Defense: ", "</div><br></div>"));
+    }
+
     */
 
 });

@@ -5,8 +5,8 @@ $(document).ready(function () {
     var queryURL = "https://opentdb.com/api.php?amount=10&category=20";
     var question = 0, score = 0, tempAnswer;
     var time = 30;
-    var winSound = new Audio("http://soundbible.com/grab.php?id=1003&type=mp3");
-    var loseSound = new Audio("http://soundbible.com/grab.php?id=2054&type=mp3");
+    var winSound = new Audio("https://soundbible.com/grab.php?id=1003&type=mp3");
+    var loseSound = new Audio("https://soundbible.com/grab.php?id=2054&type=mp3");
     //var gameOverSound = new Audio("http://www.thesoundarchive.com/ace/one/loser.mp3");
     //var victorySound = new Audio("location.href='http://www.soundboard.com/handler/DownLoadTrack.ashx?cliptitle=Not+to+be+truffled+with&filename=nz/Nzk0NTY0MDM5Nzk0NTkz_zUfJJIq_2bbzQ.mp3");
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
     };
 
     function displayGif(points) {
-        var gifURL = "http://api.giphy.com/v1/gifs/search?q=" + tempAnswer + "&api_key=Bl7UhvGRh5LbYflK00nZhm7ZEmBOUahZ&limit=1";
+        var gifURL = "https://api.giphy.com/v1/gifs/search?q=" + tempAnswer + "&api_key=Bl7UhvGRh5LbYflK00nZhm7ZEmBOUahZ&limit=1";
         if (points) {
             $.ajax({
                 url: gifURL,
