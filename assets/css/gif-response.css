@@ -1,0 +1,46 @@
+body {
+    background: url(../images/hobbiton.jpg);
+}
+
+h1 {
+    border-bottom: transparent;
+}
+
+.container {
+    background: url(../images/middleearth.jpg);
+    border: 1px solid brown;
+}
+
+.navbar-brand {
+    background-color: rgba(0, 0, 0, 0.4);
+    font-weight: bolder;
+    color: yellow;
+}
+
+button {
+    margin: 2px;
+}
+
+.gif {
+    width: inherit;
+    height: 160px;
+    object-fit: cover;
+    margin: 10px 0;
+}
+
+h1 {
+    text-align: center;
+    color: yellow;
+}
+
+#searchSection {
+    margin: 0 25%;
+}
+
+.nav-link {
+    color: black;
+}
+
+.navbar {
+    border-bottom: transparent;
+}

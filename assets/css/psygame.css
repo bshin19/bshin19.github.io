@@ -1,0 +1,9 @@
+/*Psychic Game Styles*/
+staticTxt {
+    text-align: left;
+}
+
+.psyball {
+    max-height: 400px;
+    object-fit: cover;
+}

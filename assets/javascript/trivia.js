@@ -117,11 +117,30 @@ $(document).ready(function () {
     //Pushes all the possible answers into a list of four questions
     //And sets a variable for the correct answer
 
+    function checkCount() {
+        if (questions < 9) {
+            return;
+        }
+        else {
+            // if (points < 7) {
+            //     gameOverSound.play();
+            // } else {
+            //     //victorySound.play();
+            // }
+            setTimeout(function () {
+                var finTally = $("<div>");
+                finTally.attr("class", "triviaQ");
+                finTally.text("Your final score is: " + score + " / 10.");
+                restartButton();
+                $("#timer").empty()
+                $("#triviaPop").prepend(finTally);
+            }, 3000)
+        }
+    }
+
     $("#triviaPop").on("click", ".answer", function () {
         //console.log(this);
         clearTimeout(timeOn);
-
-        if (question < 9) {
             console.log("Currently on question " + question);
             var winLose;
             if (this.getAttribute("data-correct") === "correct") {
@@ -141,20 +160,8 @@ $(document).ready(function () {
             displayGif(winLose);
             question++;
             setTimeout(initGame(), 6000);
-        } else {
-            // if (points < 7) {
-            //     gameOverSound.play();
-            // } else {
-            //     //victorySound.play();
-            // }
-            var finTally = $("<div>");
-            finTally.attr("class", "triviaQ");
-            finTally.text("Your final score is: " + score + " / 10.");
-            restartButton();
-            $("#timer").empty()
-            $("#triviaPop").prepend(finTally);
-        };
-    });
+            checkCount();
+        });
 
     $("#triviaPop").on("click", "#btnPlay", function () {
         console.log("button clicked")
