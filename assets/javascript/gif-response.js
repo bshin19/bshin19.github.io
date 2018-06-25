@@ -1,7 +1,9 @@
 $(document).ready(function () {
+
+    //Initialize the base list of options to be searched
     var lotrList = ["Aragorn", "Legolas", "Gimli", "Gandalf", "Meriadoc", "Pippin", "Bilbo", "Frodo", "Samwise", "Gollum", "Boromir", "Faramir"];
        
-
+    //Resets the page to initial values
     function startingTheme() {
         for (var i = 0; i < lotrList.length; i++) {
             //console.log("entered loop " + lotrList[i]);
@@ -9,6 +11,7 @@ $(document).ready(function () {
         };
     };
 
+    //Adds a new button to add a row of gifs to the data-gif 
     function appendGifButton(name) {
         
         var gifButton = $("<button>");
@@ -19,6 +22,7 @@ $(document).ready(function () {
         $("#nameSection").append(gifButton);
     };
 
+    //displays a select number of gifs based on what search term is provided
     function displayGifs(searchTerm) {
 
         var queryURL = "https://api.giphy.com/v1/gifs/random?tag=" +
@@ -43,6 +47,7 @@ $(document).ready(function () {
                 gifCol.attr("data-state", "still");
                 gifCol.attr("data-animate", movingURL);
                 gifCol.attr("data-still", stillURL);
+
                 $("#gifSection").prepend(gifCol);
             });
         };

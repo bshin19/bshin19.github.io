@@ -1,0 +1,32 @@
+.tableheader {
+    color: white;
+    background: blue;
+    border-radius: 4px 4px 0 0;
+}
+
+.tableInfo {
+    border: 1px solid blue;
+    border-radius: 0 0 4px 4px;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.center {
+    text-align: center;
+    color: black;
+}
+
+.container {
+    background: transparent;
+    border: none;
+    color: gold;
+}
+
+.table {
+    margin-top: -1px;
+}
+
+body {
+    background: url(../images/traintrax.jpg) no-repeat; 
+    background-size: cover;
+}
+
