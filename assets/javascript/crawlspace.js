@@ -67,7 +67,7 @@ $(document).ready(function () {
   //Then adds a listener for user searches.
   //Moves map and searches when user searches. Grabs crime when searching in SF.
   function initAutocomplete() {
-      map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
       center: {
         lat: 37.774,
         lng: -122.419
@@ -138,6 +138,7 @@ $(document).ready(function () {
         // places.rating
         // places.website
         //Pushes the searched markers to a list of markers
+
         markers.push(new google.maps.Marker({
           map: map,
           icon: "../assets/images/crawlspace/marker.png",
@@ -145,11 +146,11 @@ $(document).ready(function () {
           position: place.geometry.location,
           animation: google.maps.Animation.DROP
         }));
-        console.log(markers)
-        for (var i = 0; i < markers.length; i++){
-          google.maps.event.addListener(markers[i], "click", function(){
-              infowindow.setContent(
-              "<div><h3>" + this.title + "</h3>" 
+
+        for (var i = 0; i < markers.length; i++) {
+          google.maps.event.addListener(markers[i], "click", function () {
+            infowindow.setContent(
+              "<div><h3>" + this.title + "</h3>"
               // "<div>Date: " + this.date + "<br>" +
               // "Time: " + this.time + "</div></div>"
             );
@@ -165,31 +166,37 @@ $(document).ready(function () {
             //"$$app_token": "YOURAPPTOKENHERE"
           }
         }).done(function (data) {
-          console.log(data);
+
           //Loops through the amount of crimes returned
           for (var i = 0; i < data.length; i++) {
             var crimePos = new google.maps.LatLng(data[i].location.coordinates[1], data[i].location.coordinates[0]);
-            if (data[i].date.length > 10){
+            if (data[i].date.length > 10) {
               var dateTime = data[i].date.substr(0, 10);
-            }
+            };
+
+            //If the response falls under the right category
             //Adds the current crime to the map as a marker
-            crimeMarker.push(new google.maps.Marker({
-              map: map,
-              icon: "../assets/images/crawlspace/crime.png",
-              title: "Click for more info",
-              date: dateTime,
-              time: data[i].time,
-              crimeType: data[i].category,
-              position: crimePos,
-              animation: google.maps.Animation.DROP
-            }));
+            if (data[i].category === "ROBBERY" || data[i].category === "ASSAULT" || data[i].category === "LARCENY/THEFT" || data[i].category === "BURGLARY") {
+              console.log(data[i].category);
+              crimeMarker.push(new google.maps.Marker({
+                map: map,
+                icon: "../assets/images/crawlspace/crime.png",
+                title: "Click for more info",
+                date: dateTime,
+                time: data[i].time,
+                crimeType: data[i].category,
+                position: crimePos,
+                animation: google.maps.Animation.DROP
+              }));
+            };
           };
+
 
           // This is the info window for the crime markers
           // Shows the type of crime, date, and time
-          for (var i = 0; i < crimeMarker.length; i++){
-            google.maps.event.addListener(crimeMarker[i], "click", function(){
-                infowindow.setContent(
+          for (var i = 0; i < crimeMarker.length; i++) {
+            google.maps.event.addListener(crimeMarker[i], "click", function () {
+              infowindow.setContent(
                 "<div><h3>" + this.crimeType + "</h3>" +
                 "<div>Date: " + this.date + "<br>" +
                 "Time: " + this.time + "</div></div>"
@@ -267,17 +274,19 @@ addListBtn.onclick = function () {
   $("#destination").val("");
   $("#modalSubmitBtn").prop("disabled", true);
   searchModal.style.display = "block";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 searchModal.onclick = function (event) {
   if (event.target == searchModal) {
     searchModal.style.display = "none";
-  }
-}
+  };
+};
 
 // When the user clicks the cancel button,
 // remove the modal and disable the sumbit button
 $("#modalCancelBtn").on("click", function () {
   searchModal.style.display = "none";
-})
+});
+
+///END///
