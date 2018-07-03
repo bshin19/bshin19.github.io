@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Crawlspace</title>
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <!-- CSS Link -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/crawlspace.css" />
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 appName">
+                    Crawlspace
+                </div>
+                <div class="col-md-4">
+                    <input id="pac-input" class="controls" type="text" placeholder=" Search A Location">
+                </div>
+                <div class="col-md-4 text-center">
+                    <button id="searchLocal" class="btn btn-sm">Search Local Area</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Panel Container to include separate panels for map and list -->
+    <div id="panels" class="container">
+        <div class="row mobileFixMap">
+            <!-- Map Display -->
+            <div class="col-md-8 map">
+                <!-- Map panel -->
+                <div class="panel">
+                    <div id="panelHeading">
+                        <h3 class="panel-title" style="text-align: center">Map</h3>
+                    </div>
+                    <!-- This is where the map will be displayed -->
+                    <div id="map" class="panel-body">
+                        <!-- Map info here -->
+                    </div>
+                </div>
+            </div>
+            <!-- List Display -->
+            <div class="col-md-4 map">
+                <!-- List panel -->
+                <div class="panel">
+                    <div id="panelHeading">
+                        <h3 class="panel-title mobileFixList" style="text-align: center">List</h3>
+                    </div>
+                    <!-- The list of travel information is listed here -->
+                    <div id="list" class="panel-body">
+                        <!-- List info here -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Current</th>
+                                    <th>Destination</th>
+                                    <th>Time Travel</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Panel Container -->
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <form style="padding: 5px;">
+                <div class="form-group">
+                    <label for="pub-name">Current Pub</label>
+                    <input type="text" class="form-control input" id="currentPub" placeholder="Required field">
+                </div>
+                <div class="form-group">
+                    <label for="destination">Destination Pub</label>
+                    <input type="text" class="form-control input" id="destination" placeholder="Required field">
+                </div>
+                <div class="form-group">
+                    <label for="travel-time">Travel time (in minutes)</label>
+                    <input type="number" class="form-control input" id="travel-time" type="number" min="0" placeholder="Required field">
+                </div>
+                <button type="button" class="btn btn-default" id="modalSubmitBtn">Submit</button>
+                <button type="button" class="btn btn-default" id="modalCancelBtn">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <!-- End Search Modal -->
+
+    <!-- Footer -->
+    <footer class="modal-footer">
+        <div class="container text-center">
+            <span class="text-muted">Copyright 2018</span>
+        </div>
+    </footer>
+
+    <!-- Script Sources -->
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWffI4S98URwn_yAiK-P7GZ46k4j8SfL0&libraries=places,geometry"></script>
+
+    <script src="../assets/javascript/crawlspace.js"></script>
+
+</body>
+
+</html>
