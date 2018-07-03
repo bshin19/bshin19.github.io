@@ -53,11 +53,24 @@ $(document).ready(function () {
   function createMarker(place) {
     var marker = new google.maps.Marker({
       map: map,
-      position: place.geometry.location
+      icon: "../assets/images/crawlspace/marker.png",
+      title: place.name,
+      address: place.vicinity,
+      phone: place.formatted_phone_number,
+      price: place.price_level,
+      rating: place.rating,
+      position: place.geometry.location,
+      animation: google.maps.Animation.DROP
     });
 
     google.maps.event.addListener(marker, 'click', function () {
-      infowindow.setContent(place.name);
+      infowindow.setContent(
+        "<div><h3>" + this.title + "</h3>" +
+        "<div>" + this.address + "<br>" +
+        "Rating: " + this.rating + "/5<br>" +
+        "<a id='markerCrawl'>Visit Next</a>" +
+        "</div></div>"
+      );
       infowindow.open(map, this);
     });
   };
@@ -130,19 +143,24 @@ $(document).ready(function () {
         //Remove "limit" below or increase for final product
         var queryString = 'Select * where within_circle(location,' + lat + "," + long + ', 400) and date between "2017-06-10T12:00:00" and "2018-06-10T14:00:00" Limit 150';
 
-        // places.name (header)
-        // places.formatted_address (address)
-        // places.formatted_phone_number (phone number)
-        // places.opening_hours.weekday_text
-        // places.price_level
-        // places.rating
-        // places.website
-        //Pushes the searched markers to a list of markers
+        console.log(place);
 
+        if (place.address_components.length > 6) {
+          var searchedPlace = place.address_components[0].long_name + " " + place.address_components[1].short_name + "<br>" + place.address_components[3].long_name + ", " + place.address_components[5].short_name + " " + place.address_components[7].short_name
+        } else {
+          var searchedPlace = place.address_components[0].long_name + " " + place.address_components[1].short_name + "<br>" + place.address_components[3].short_name + ", " + place.address_components[5].short_name
+        }
+
+        //Pushes the searched markers to a list of markers
         markers.push(new google.maps.Marker({
           map: map,
           icon: "../assets/images/crawlspace/marker.png",
           title: place.name,
+          address: searchedPlace,
+          phone: place.formatted_phone_number,
+          hours: place.opening_hours.open_now,
+          price: place.price_level,
+          rating: place.rating,
           position: place.geometry.location,
           animation: google.maps.Animation.DROP
         }));
@@ -150,9 +168,11 @@ $(document).ready(function () {
         for (var i = 0; i < markers.length; i++) {
           google.maps.event.addListener(markers[i], "click", function () {
             infowindow.setContent(
-              "<div><h3>" + this.title + "</h3>"
-              // "<div>Date: " + this.date + "<br>" +
-              // "Time: " + this.time + "</div></div>"
+              "<div><h3>" + this.title + "</h3>" +
+              "<div>" + this.address + "<br>" +
+              "Call: " + this.phone + " " + "Rating: " + this.rating + "<br>" +
+              "<a id='markerCrawl'>Visit Next</a>" +
+              "</div></div>"
             );
             infowindow.open(map, this);
           });
@@ -177,7 +197,6 @@ $(document).ready(function () {
             //If the response falls under the right category
             //Adds the current crime to the map as a marker
             if (data[i].category === "ROBBERY" || data[i].category === "ASSAULT" || data[i].category === "LARCENY/THEFT" || data[i].category === "BURGLARY") {
-              console.log(data[i].category);
               crimeMarker.push(new google.maps.Marker({
                 map: map,
                 icon: "../assets/images/crawlspace/crime.png",
@@ -237,6 +256,16 @@ $(document).ready(function () {
       Destination: nextDestination,
       dateAdded: firebase.database.ServerValue.TIMESTAMP
     });
+  });
+
+  //Listens for when the user clicks the Visit Next Button
+  $(".container").on("click", "#markerCrawl", function() {
+    var thisBar = this;
+    var pubName = this.title;
+    var tableBody = $("tbody");
+    var tableRow = $("<tr>");
+    tableRow.append(pubName);
+    tableBody.append(tableRow)
   });
 
   ///END EVENT LISTENERS///
