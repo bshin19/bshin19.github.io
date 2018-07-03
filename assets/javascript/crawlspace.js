@@ -146,9 +146,15 @@ $(document).ready(function () {
         console.log(place);
 
         if (place.address_components.length > 6) {
-          var searchedPlace = place.address_components[0].long_name + " " + place.address_components[1].short_name + "<br>" + place.address_components[3].long_name + ", " + place.address_components[5].short_name + " " + place.address_components[7].short_name
+          var searchedPlace = place.address_components[0].long_name + " " + place.address_components[1].short_name + "<br>" + place.address_components[3].long_name + ", " + place.address_components[5].short_name + " " + place.address_components[7].short_name;
         } else {
-          var searchedPlace = place.address_components[0].long_name + " " + place.address_components[1].short_name + "<br>" + place.address_components[3].short_name + ", " + place.address_components[5].short_name
+          var searchedPlace = place.address_components[0].long_name + " " + place.address_components[1].short_name + "<br>" + place.address_components[3].short_name + ", " + place.address_components[5].short_name;
+        };
+
+        if (place.hasOwnProperty('opening_hours')) {
+          var hours = place.opening_hours.open_now;
+        } else {
+          var hours = ""
         }
 
         //Pushes the searched markers to a list of markers
@@ -158,21 +164,30 @@ $(document).ready(function () {
           title: place.name,
           address: searchedPlace,
           phone: place.formatted_phone_number,
-          hours: place.opening_hours.open_now,
+          hours: hours,
           price: place.price_level,
           rating: place.rating,
           position: place.geometry.location,
           animation: google.maps.Animation.DROP
         }));
 
+
         for (var i = 0; i < markers.length; i++) {
           google.maps.event.addListener(markers[i], "click", function () {
+
+            //Build infoWindow Content
+            var SearchedinfoWin = "<div><h3>" + this.title + "</h3>";
+            SearchedinfoWin += "<div>" + this.address + "<br>";
+            if (this.phone) {
+              SearchedinfoWin += "Call: " + this.phone + " ";
+            };
+            if (this.rating) {
+              SearchedinfoWin += "Rating: " + this.rating + "<br>";
+            };
+            SearchedinfoWin += "<a id='markerCrawl'>Visit Next</a>" + "</div></div>"
+
             infowindow.setContent(
-              "<div><h3>" + this.title + "</h3>" +
-              "<div>" + this.address + "<br>" +
-              "Call: " + this.phone + " " + "Rating: " + this.rating + "<br>" +
-              "<a id='markerCrawl'>Visit Next</a>" +
-              "</div></div>"
+              SearchedinfoWin
             );
             infowindow.open(map, this);
           });
