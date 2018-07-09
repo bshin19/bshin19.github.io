@@ -1,0 +1,130 @@
+/*General Styles*/
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("../images/fruitbg.jpg");
+    background-position: 50% 10%;
+    color: gold;
+}
+
+h1 {
+    font-size: 24px;
+    line-height: 2;
+}
+
+a:hover {
+    text-decoration: none;
+    color: orange;
+}
+
+/*NavBar styles*/
+.navbar-brand {
+    margin: -8px auto;
+    padding: 12px;
+    color: gold;
+    text-shadow: 1px 1px 2px white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#sideBar {
+    text-align: center;
+    background: rgb(70, 130, 180, .3);
+    border-radius: 8px;
+    border: 10px solid transparent;
+    color: red;
+}
+
+#navPic {
+    object-fit: contain;
+    max-width: 50%;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
+
+
+#aboutClick:hover {
+    color: orange;
+}
+
+#portClick:hover {
+    color: orange;
+}
+
+#conClick:hover {
+    color: orange;
+}
+
+/*Main Body Styles*/
+
+.headerText {
+    text-align: center;
+    text-shadow: 2px 2px 1px red;
+}
+
+.headerUnder {
+    border-bottom: 1px solid gray;
+}
+
+#mainBody {
+    border-radius: 8px;
+    border: 2px solid steelblue;
+}
+
+/*Footer Styles*/
+.fixed-bottom {
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    background-color: #666666;
+    color: #4aaaa5;
+}
+
+/*Portfolio Styles*/
+.portfolioimages {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    float: left;
+    padding: 20px;
+}
+
+.portfoliotext {
+    background-color: #4aaaa5;
+    color: #ffffff;
+    width: 160px;
+    max-height: 50px;
+    position: absolute;
+    margin: 150px 20px;
+    text-align: center;
+}
+
+/*About Styles*/
+.abouttext {
+    line-height: 1.5;
+    text-shadow: 2px 2px 1px black;
+}
+
+/*Contact Styles*/
+.contactwidth {
+    box-sizing: initial;
+    box-sizing: 70%;
+}
+
+/*Remove off-center of header*/
+@media only screen and (min-width: 575px) {
+    .headerText {
+        text-align: initial;
+    }
+}
+
+/*Standardize sizing of navpic*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    #navPic {
+        max-width: 70%;
+    }
+}

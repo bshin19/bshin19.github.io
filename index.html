@@ -6,78 +6,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>About</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="global_assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="global_assets/css/style.css" />
+
 </head>
 
 <body>
     <!--Bootstrap NavBar inserted and modified for personal use-->
     <nav class="navbar navbar-expand-lg">
-        <div class="navbar-brand bg-info">
+        <a class="navbar-brand" href="index.html">
             Brady Shinners
-        </div>
-
-        <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="portfolio.html">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
+        </a>
     </nav>
 
     <!--Rest of body following NavBar-->
     <div class="container">
+
+        <!--Row 1-->
         <div class="row">
-            <h1 class="col-md-12 col-sm-12">
-                About Me
-            </h1>
+            <!--Side navbar-->
+            <nav class="nav flex-column col-md-2 col-sm-4" id="sideBar">
+                <img id="navPic" src="global_assets/images/closeup.jpg" alt="Self-Pic">
+                <a class="nav-link" id="aboutClick">About</a>
+                <a class="nav-link" id="portClick">Portfolio</a>
+                <a class="nav-link" id="conClick">Contact</a>
+            </nav>
+
+            <div class="col-md-10 col-sm-8" id="mainBody">
+
+                <!--Body Row 1: Header-->
+                <div class="row headerUnder">
+                    <h1 class="col-12 headerText">
+                        Full-Stack Developer
+                    </h1>
+                </div>
+
+                <!--Body Row 2: About Placeholder-->
+                <div class="row">
+                    <div class="col-12" id="aboutFill">
+                        <!--Filled with Javascript on click-->
+                    </div>
+                </div>
+
+                <!--Body Row 3: Portfolio Placeholder-->
+                <div class="row">
+                    <div class="col-12" id="portFill">
+                        <!--Filled with Javascript on click-->
+                    </div>
+                </div>
+
+                <!--Body Row 4: Contact Placeholder-->
+                <div class="row">
+                    <div class="col-12" id="contactFill">
+                        <!--Filled with Javascript on click-->
+                    </div>
+                </div>
+
+            </div>
         </div>
 
-        <!--Column 2-->
+        <br>
+
         <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <img id="mypic" src="assets/images/bshin.jpg" alt="Self-Pic">
-            </div>
-
-            <div class="col-md-8 col-sm-12 abouttext">
-                <p>
-                    Brady is a lifelong learner with a passion for computer programming and writing. He currently attends a web development bootcamp
-                    at the University of Minnesota, which he intends to use to jump-start a career in the programming field.
-                </p>
-                <br>
-
-                <p>
-                    He grew up in Minnesota and accordingly spends a disproportionate amount of time inside, hiding from the cold weather. Come
-                    spring, however, it's hard to find him inside.
-                </p>
-                <br>
-
-                <p>
-                    He is currently working on prototyping a social media website with a partner that he hopes will provide a unique new experience
-                    for connecting on the web.
-                </p>
-            </div>
+            <footer class="fixed-bottom col-12">Copyright &#169;</footer>
         </div>
     </div>
 
-    <footer class="fixed-bottom">Copyright &#169;</footer>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+        <script src="global_assets/javascript/projects.js"></script>
+        <script src="global_assets/javascript/home.js"></script>
 
 </body>
 
