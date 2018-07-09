@@ -1,9 +1,11 @@
 /*General Styles*/
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("../images/fruitbg.jpg");
-    background-position: 50% 10%;
-    color: gold;
+    background-image: url("../images/mountains0.jpg");
+    background-size: auto;
+    background-attachment: fixed;
+    background-position: bottom right;
+    color: black;
 }
 
 h1 {
@@ -11,33 +13,32 @@ h1 {
     line-height: 2;
 }
 
-a:hover {
-    text-decoration: none;
-    color: orange;
-}
-
 /*NavBar styles*/
 .navbar-brand {
     margin: -8px auto;
     padding: 12px;
-    color: gold;
-    text-shadow: 1px 1px 2px white;
+    color: black;
+    text-shadow: 1px 1px 2px darkgray;
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar-brand.hover {
+    text-decoration: none;
+    color: gray;
 }
 
 #sideBar {
     text-align: center;
-    background: rgb(70, 130, 180, .3);
+    background: rgba(143, 127, 127, 0.7);
+    border: 1px solid black;
     border-radius: 8px;
-    border: 10px solid transparent;
-    color: red;
 }
 
 #navPic {
     object-fit: contain;
     max-width: 50%;
     height: auto;
-    margin: 0 auto;
+    margin: 4px auto 0;
     border-radius: 50%;
 }
 
@@ -47,31 +48,32 @@ a:hover {
 
 
 #aboutClick:hover {
-    color: orange;
+    color: gold;
 }
 
 #portClick:hover {
-    color: orange;
+    color: gold;
 }
 
 #conClick:hover {
-    color: orange;
+    color: gold;
 }
 
 /*Main Body Styles*/
 
 .headerText {
     text-align: center;
-    text-shadow: 2px 2px 1px red;
+    font-weight: 400;
 }
 
 .headerUnder {
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid black;
 }
 
 #mainBody {
     border-radius: 8px;
-    border: 2px solid steelblue;
+    border: 1px solid black;
+    background: rgba(143, 127, 127, 0.7);
 }
 
 /*Footer Styles*/
@@ -86,27 +88,27 @@ a:hover {
 
 /*Portfolio Styles*/
 .portfolioimages {
-    height: 200px;
-    width: 200px;
+    height: 160px;
+    width: 160px;
     object-fit: cover;
     float: left;
-    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
 }
 
 .portfoliotext {
-    background-color: #4aaaa5;
-    color: #ffffff;
+    background-color: rgba(105, 105, 214, 0.884);
+    color: white;
     width: 160px;
     max-height: 50px;
     position: absolute;
-    margin: 150px 20px;
+    margin: 150px 0px;
     text-align: center;
 }
 
 /*About Styles*/
 .abouttext {
     line-height: 1.5;
-    text-shadow: 2px 2px 1px black;
 }
 
 /*Contact Styles*/
@@ -116,7 +118,7 @@ a:hover {
 }
 
 /*Remove off-center of header*/
-@media only screen and (min-width: 575px) {
+@media only screen and (min-width: 576px) {
     .headerText {
         text-align: initial;
     }
@@ -128,3 +130,14 @@ a:hover {
         max-width: 70%;
     }
 }
+
+/* @media only screen and (max-width: 768px) {
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+} */
+
+/* @media only screen and (max-width: 576px) {
+
+} */
