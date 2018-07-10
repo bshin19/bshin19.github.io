@@ -53,7 +53,7 @@ $(document).ready(function () {
   function createMarker(place) {
     var marker = new google.maps.Marker({
       map: map,
-      icon: "../assets/images/crawlspace/marker.png",
+      icon: "assets/images/marker.png",
       title: place.name,
       address: place.vicinity,
       phone: place.formatted_phone_number,
@@ -160,7 +160,7 @@ $(document).ready(function () {
         //Pushes the searched markers to a list of markers
         markers.push(new google.maps.Marker({
           map: map,
-          icon: "../assets/images/crawlspace/marker.png",
+          icon: "assets/images/marker.png",
           title: place.name,
           address: searchedPlace,
           phone: place.formatted_phone_number,
@@ -214,7 +214,7 @@ $(document).ready(function () {
             if (data[i].category === "ROBBERY" || data[i].category === "ASSAULT" || data[i].category === "LARCENY/THEFT" || data[i].category === "BURGLARY") {
               crimeMarker.push(new google.maps.Marker({
                 map: map,
-                icon: "../assets/images/crawlspace/crime.png",
+                icon: "assets/images/crime.png",
                 title: "Click for more info",
                 date: dateTime,
                 time: data[i].time,

@@ -21,13 +21,12 @@ $(document).ready(function () {
     function travelMath(startTime, averageArrive) {
         //determines the difference in minutes between the initial train start time and now
         var diffTime = moment().diff(moment(startTime), "minutes");
-        while (diffTime > averageArrive) {
-            diffTime -= averageArrive;
+        diffTime = diffTime % averageArrive;
             // diffTime += loadTime;
             // if (Math.floor(Math.random() * 100) < delayChance) {
             //     diffTime += 15;
             // };
-        };
+        
         console.log(diffTime);
 
         //Subtracts the remaining time to next arrival from average arrival and returns it
@@ -94,4 +93,6 @@ $(document).ready(function () {
             delayTime: tempDelay
         });
     });
+
+    ///END EVENT LISTENERS///
 });

@@ -12,7 +12,7 @@ $(document).ready(function () {
 
         var rpg = new Card("pages/rpg/rpg.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
         var psychic = new Card("pages/psychic/psychic.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
-        var trivia = new Card("pages/trivia/trivia.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
+        var trivia = new Card("pages/trivia/trivia-game.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
         var bearCrystal = new Card("pages/crystal_math/crystalgame.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
         var gifResponse = new Card("pages/gifer/gif-response.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
         var trainTime = new Card("pages/traintimer/traintime.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");

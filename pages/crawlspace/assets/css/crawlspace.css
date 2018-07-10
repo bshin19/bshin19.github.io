@@ -3,12 +3,12 @@
 }*/
 
 body {
-    background: url("../images/crawlspace/background.jpg") no-repeat center center fixed;
+    background: url("../images/background.jpg") no-repeat center center fixed;
     background-size: cover;
 }
 
 header {
-    background: url("../images/crawlspace/header.jpg");
+    background: url("../images/header.jpg");
     background-size: cover;
     margin-bottom: 10px;
     border-bottom: 1px solid white;
@@ -83,7 +83,7 @@ header {
 }
 
 #panelHeading {
-    background: url("../images/crawlspace/panelHeading.jpg");
+    background: url("../images/panelHeading.jpg");
     color: white;
     height: 35px;
 }
@@ -98,7 +98,7 @@ header {
 }
 
 footer {
-    background: url("../images/crawlspace/header.jpg");
+    background: url("../images/header.jpg");
     background-size: cover;
     position: fixed;
     bottom: 0;
@@ -112,7 +112,7 @@ footer {
 }
 
 #list {
-    background: url("../images/crawlspace/listBackground.jpg");
+    background: url("../images/listBackground.jpg");
     background-size: cover;
     padding: 7px;
 }
@@ -123,7 +123,7 @@ label {
 
 /* Begin Modal Content */
 .modal-content {
-    background: url("../images/crawlspace/modal.jpg");
+    background: url("../images/modal.jpg");
     background-size: cover;
     margin: auto;
     margin-top: 10%;

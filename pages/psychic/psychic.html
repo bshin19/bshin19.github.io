@@ -13,17 +13,11 @@
     <!--Bootstrap Scripts/Styles-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
         crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
 
     <!--Custom Scripts/Styles-->
-    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/style.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/psygame.css" />
-    <script src="../assets/javascript/psygame.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="../../global_assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/psygame.css" />
+
 
 </head>
 
@@ -31,40 +25,21 @@
 
     <!--Bootstrap NavBar inserted and modified for personal use-->
     <nav class="navbar navbar-expand-lg">
-        <div class="navbar-brand bg-info">
-            Brady Shinners
-        </div>
-
-        <button class="navbar-toggler bg-info" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../portfolio.html">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../contact.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <a class="navbar-brand" href="../../index.html">
+                Brady Shinners
+            </a>
+        </nav>
 
     <!--Rest of body following NavBar-->
     <div class="container">
         <div class="row">
-            <h1 class="col-md-12 col-sm-12">
+            <h1 class="col-md-12 col-sm-12 center">
                 Psychic Game
             </h1>
         </div>
 
         <!--Row 1 Guessing Game-->
-        <div class="row">
+        <div class="row whiteTxt">
             <div class="col-3">
 
             </div>
@@ -78,18 +53,18 @@
         </div>
 
         <!--Row 2 Image-->
-        <div class="row">
+        <div class="row whiteTxt">
             <div class="col-3">
 
             </div>
-            <img src="../assets/images/ball.jpeg" class="col-6 psyball">
+            <img src="assets/images/ball.jpeg" class="col-6 psyball">
             <div class="col-3">
 
             </div>
         </div>
 
         <!--Row 3 Wins-->
-        <div class="row">
+        <div class="row whiteTxt">
             <div class="col-5">
                 <!--Unused-->
             </div>
@@ -111,7 +86,7 @@
         </div>
 
         <!--Row 4 Losses-->
-        <div class="row">
+        <div class="row whiteTxt">
             <div class="col-5">
                 <!--Unused-->
             </div>
@@ -133,7 +108,7 @@
         </div>
 
         <!--Row 5 Guesses-->
-        <div class="row">
+        <div class="row whiteTxt">
             <div class="col-5">
                 <!--Unused-->
             </div>
@@ -154,7 +129,7 @@
         </div>
 
         <!--Row 6 Guessed Letters-->
-        <div class="row">
+        <div class="row whiteTxt">
             <div class="col-5">
                 <!--Unused-->
             </div>
@@ -176,7 +151,20 @@
         </div>
     </div>
 
+    <!--SCRIPTS-->
 
+    <!--Bootstrap Scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+
+    <!--Custom Script-->
+    <script src="assets/javascript/psygame.js"></script>
+
+    <!--END SCRIPTS-->
 </body>
 
 </html>
