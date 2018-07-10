@@ -1,13 +1,11 @@
 $(document).ready(function () {
 
     //Initialize path to be used on all assets
-    var portPath = "../assets/images/rpg-game/portrait/";
-    var animPath = "../assets/images/rpg-game/fight/";
-    var staticPath = "../assets/images/rpg-game/static/";
-
+    var portPath = "../rpg/assets/images/portrait/";
+    var animPath = "../rpg/assets/images/rpg-game/fight/";
+    var staticPath = "../rpg/assets/images/rpg-game/static/";
 
     //Player Objects Begin Here:
-    //
 
     var lyn = {
         name: "Lyn",

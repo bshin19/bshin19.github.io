@@ -10,7 +10,7 @@ $(document).ready(function () {
             this.title = titleName;
         };
 
-        var rpg = new Card("pages/rpg/rpg-game.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
+        var rpg = new Card("pages/rpg/rpg.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
         var psychic = new Card("pages/psychic/psychic.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
         var trivia = new Card("pages/trivia/trivia.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
         var bearCrystal = new Card("pages/crystal_math/crystalgame.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
@@ -28,8 +28,8 @@ $(document).ready(function () {
     };
 
     function cleanCarrot(div, cleanText) {
-        $(div).text(cleanText)
-        $(div).removeAttr("style")
+        $(div).text(cleanText);
+        $(div).removeAttr("style");
     }
 
     function aboutFiller(section) {
@@ -94,9 +94,57 @@ $(document).ready(function () {
         }
     };
 
-    function conFiller(section) {
+    function formBuilder(labelTitle, labelHTML, placeholdTitle, isMessBox) {
+        var rowDiv = $("<div>");
+        rowDiv.addClass("row");
 
-    }
+        var nameForm = $("<form>");
+
+        var colDiv = $("<div>");
+        colDiv.addClass("form-group col-12");
+
+        var inputLabel = $("<label>");
+        inputLabel.attr("for", labelTitle);
+        inputLabel.html(labelHTML);
+        
+        if (!isMessBox) {
+            var inputInfo = $("<input>");
+            inputInfo.addClass("form-control contact-width");
+            inputInfo.attr("id", labelTitle);
+            inputInfo.attr("placeholder", placeholdTitle);
+        } else {
+            var inputInfo = $("<textarea>");
+            inputInfo.addClass("form-control");
+            inputInfo.attr("id", labelTitle);
+            inputInfo.attr("rows", placeholdTitle);
+        };
+
+        var subBtn = $("<button>");
+        subBtn.addClass("btn btn-primary");
+        subBtn.attr("type", "submit");
+        subBtn.html("Submit");
+        
+        colDiv.append(inputLabel, inputInfo);
+        nameForm.append(colDiv);
+        rowDiv.append(nameForm, subBtn);
+        $("#contactFill").append(nameForm);
+    };
+
+    function conFiller() {
+        if (!contact) {
+            contact = true;
+            clickCarrot("#conClick");
+
+            formBuilder("inputEmail", "Email", "Johndoe@Example.com", false);
+            formBuilder("inputName", "Name", "John Doe", false);
+            formBuilder("messagebox", "Message", 5, true);
+
+        } else {
+            contact = false;
+            cleanCarrot("#conClick", "Contact");
+            $("#contactFill").empty();
+        };
+    };
 
     $("#aboutClick").on("click", function () {
         aboutFiller("#aboutFill");
@@ -107,7 +155,7 @@ $(document).ready(function () {
     });
 
     $("#conClick").on("click", function () {
-        conFiller("#contactFill");
+        conFiller();
     });
 
     buildPortfolio();
