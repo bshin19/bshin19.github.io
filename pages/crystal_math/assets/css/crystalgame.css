@@ -17,10 +17,10 @@
 #honeyText {
     color: black;
     font-size: 24px;
-    width: 160px;
+    width: 30%;
     max-height: 50px;
     position: absolute;
-    margin: 110px 20px;
+    margin: 82px -2px;
     text-align: center;
 }
 
@@ -33,6 +33,21 @@
     height: auto;
 }
 
+#bareImage {
+    width: 60%;
+    height: auto;
+    border-radius: 30%;
+    float: right;
+}
+
+#honeyImage {
+    width: 30%;
+    height: auto;
+    object-fit: cover;
+    float: left;
+}
+
 .crystalImages:hover {
     cursor: pointer;
 }
+
