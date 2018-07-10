@@ -5,7 +5,8 @@
 }
 
 #crystalContainer {
-    background-image: url("../images/breadfish.jpg");
+    background-image: url("../images/breadfish.gif");
+    background-size: cover;
 }
 
 .crystalWhBG {

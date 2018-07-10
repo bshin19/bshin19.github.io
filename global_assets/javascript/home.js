@@ -95,13 +95,9 @@ $(document).ready(function () {
     };
 
     function formBuilder(labelTitle, labelHTML, placeholdTitle, isMessBox) {
-        var rowDiv = $("<div>");
-        rowDiv.addClass("row");
-
-        var nameForm = $("<form>");
 
         var colDiv = $("<div>");
-        colDiv.addClass("form-group col-12");
+        colDiv.addClass("form-group");
 
         var inputLabel = $("<label>");
         inputLabel.attr("for", labelTitle);
@@ -119,15 +115,9 @@ $(document).ready(function () {
             inputInfo.attr("rows", placeholdTitle);
         };
 
-        var subBtn = $("<button>");
-        subBtn.addClass("btn btn-primary");
-        subBtn.attr("type", "submit");
-        subBtn.html("Submit");
-        
         colDiv.append(inputLabel, inputInfo);
-        nameForm.append(colDiv);
-        rowDiv.append(nameForm, subBtn);
-        $("#contactFill").append(nameForm);
+        return colDiv
+        
     };
 
     function conFiller() {
@@ -135,9 +125,19 @@ $(document).ready(function () {
             contact = true;
             clickCarrot("#conClick");
 
-            formBuilder("inputEmail", "Email", "Johndoe@Example.com", false);
-            formBuilder("inputName", "Name", "John Doe", false);
-            formBuilder("messagebox", "Message", 5, true);
+            var nameForm = $("<form>");
+
+            var inEmail = formBuilder("inputEmail", "Email", "Johndoe@Example.com", false);
+            var inName = formBuilder("inputName", "Name", "John Doe", false);
+            var inMess = formBuilder("messagebox", "Message", 5, true);
+
+            var subBtn = $("<button>");
+            subBtn.addClass("btn btn-primary");
+            subBtn.attr("type", "submit");
+            subBtn.html("Submit");
+
+            nameForm.append(inEmail, inName, inMess, subBtn);
+            $("#contactFill").append(nameForm);
 
         } else {
             contact = false;
