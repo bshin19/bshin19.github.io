@@ -1,411 +1,120 @@
 $(document).ready(function () {
 
-    //Initialize path to be used on all assets
+    //Initialize paths to be used on all assets
     var portPath = "../rpg/assets/images/portrait/";
     var animPath = "../rpg/assets/images/rpg-game/fight/";
     var staticPath = "../rpg/assets/images/rpg-game/static/";
 
-    //Player Objects Begin Here:
+    ///CONSTRUCTORS///
 
-    var lyn = {
-        name: "Lyn",
-        level: 1,
-        hp: 30,
-        maxHP: 30,
-        atk: 8,
-        spd: 12,
-        def: 2,
-        res: 2,
-        crit: 30,
-        hpgr: 100,
-        atkgr: 50,
-        spdgr: 80,
-        defgr: 35,
-        resgr: 40,
-        portrait: portPath + "lyn.jpg",
-        anim: animPath + "lyn.gif",
-        animCrit: animPath + "lyn_crit.gif",
-        animStatic: staticPath + "lyn.png",
-        animState: "still",
-        isChosen: false,
-        guard: false,
-        animSpell: "",
-        elixirs: 3,
+    function MakeChar(name, lvl, hlt, mhp, atk, spd, def, res, crt, hpgr, atkgr, spdgr, defgr, resgr, port, anim, crit, static, state, chosen, guard, spell, elix, allyVal, bonus, cls) {
+        this.name = name;
+        this.level = lvl;
+        this.hp =  hlt;
+        this.maxHP =  mhp;
+        this.atk =  atk;
+        this.spd =  spd;
+        this.def =  def;
+        this.res =  res;
+        this.crit =  crt;
+        this.hpgr =  hpgr;
+        this.atkgr =  atkgr;
+        this.spdgr =  spdgr;
+        this.defgr =  defgr;
+        this.resgr =  resgr;
+        this.portrait =  portPath + port;
+        this.anim =  animPath + anim;
+        this.animCrit =  animPath + crit;
+        this.animStatic =  staticPath + static;
+        this.animState =  state;
+        this.isChosen = chosen;
+        this.guard =  guard;
+        this.animSpell =  spell;
+        this.elixirs =  elix;
+        this.allyCalls =  allyVal;
+        this.atkBonus =  bonus;
+        this.class = cls;
+        this.enterArena = fillArena.bind(this, "#playerSide");
+        this.levelup = levelup.bind(this);
+        //this.attackCheck = attackfunction.bind(this)
+        //this.attack = function() {
+
+        //};
+    };
+
+    function MakeFoe(name, lvl, hp, mhp, atk, spd, def, port, anim, static, state, spell, chosen) {
+        this.name = name;
+        this.level = lvl;
+        this.hp = hp;
+        this.maxHP = mhp;
+        this.atk = atk;
+        this.spd = spd;
+        this.def = def;
+        this.portrait = portPath + port;
+        this.anim = animPath + anim;
+        this.animStatic = staticPath + static;
+        this.animState = state;
+        this.animSpell = spell;
+        this.isChosen = chosen;
+        this.enterArena = fillArena.bind(this, "#foeSide");
+    };
+
+    ///END CONSTRUCTORS///
+
+    ///PLAYER OBJECTS///
+
+    var lyn = new MakeChar("Lyn", 1, 30, 30, 8, 12, 2, 2, 30, 100, 50, 80, 35, 40, "lyn.jpg", "lyn.gif", "lyn_crit.gif", "lyn.png", "still", false, false, "", 3, 1, 1, "Blade Lord");
+    var hector = new MakeChar("Hector", 1, 35, 35, 10, 6, 7, 1, 10, 100, 80, 30, 60, 10, "hector.jpg", "hector.gif", "hector_crit.gif", "hector.png", "still", false, false, "", 3, 1, 1, "Great Lord");
+    var eliwood = new MakeChar("Eliwood", 1, 33, 33, 9, 9, 4, 7, 20, 100, 50, 50, 50, 50, "eliwood.jpg", "eliwood.gif", "eliwood_crit.gif", "eliwood.png", "still", false, false, "", 3, 1, 1, "Knight Lord");
+    var roy = new MakeChar("Roy", 5, 39, 39, 15, 12, 12, 9, 25, 100, 70, 70, 70, 70, "roy.jpg", "roy.gif", "roy_crit.gif", "roy.png", "still", false, false, "", 3, 1, 1, "Master Lord");
+    var athos = new MakeChar("Athos", 20, 40, 30, 20, 18, 30, 0, 0, 0, 0, 0, 0, 0, "athos.jpg", "athos.gif", "", "athos.png", "still", false, false, "", 3, 1, 1, "Archsage");
+
+    //Lyn Allies
         //ally: [
         //    char[1], char[2], char[3], char[4]
         //],
-        allyCalls: 1,
-        atkBonus: 1
-    };
-
-    var hector = {
-        name: "Hector",
-        level: 1,
-        hp: 35,
-        maxHP: 35,
-        atk: 10,
-        spd: 6,
-        def: 7,
-        res: 1,
-        crit: 10,
-        hpgr: 100,
-        atkgr: 80,
-        spdgr: 30,
-        defgr: 60,
-        resgr: 10,
-        portrait: portPath + "hector.jpg",
-        anim: animPath + "hector.gif",
-        animCrit: animPath + "hector_crit.gif",
-        animStatic: staticPath + "hector.png",
-        animState: "still",
-        isChosen: false,
-        guard: false,
-        animSpell: "",
-        elixirs: 3,
+    //Hector Allies
         // ally: [
         //     char[0], char[2], char[3], char[4]
         // ],
-        allyCalls: 1,
-        atkBonus: 1
-    };
-
-    var eliwood = {
-        name: "Eliwood",
-        level: 1,
-        hp: 33,
-        maxHP: 33,
-        atk: 9,
-        spd: 9,
-        def: 4,
-        res: 7,
-        crit: 20,
-        hpgr: 100,
-        atkgr: 50,
-        spdgr: 50,
-        defgr: 50,
-        resgr: 50,
-        portrait: portPath + "eliwood.jpg",
-        anim: animPath + "eliwood.gif",
-        animCrit: animPath + "eliwood_crit.gif",
-        animStatic: staticPath + "eliwood.png",
-        animState: "still",
-        isChosen: false,
-        guard: false,
-        animSpell: "",
-        elixirs: 3,
+    //Eliwood Allies
         // ally: [
         //     char[0], char[1], char[3], char[4]
         // ],
-        allyCalls: 1,
-        atkBonus: 1
-    };
-
-    var roy = {
-        name: "Roy",
-        level: 5,
-        hp: 39,
-        maxHP: 39,
-        atk: 15,
-        spd: 12,
-        def: 12,
-        res: 9,
-        crit: 25,
-        hpgr: 100,
-        atkgr: 70,
-        spdgr: 70,
-        defgr: 70,
-        resgr: 70,
-        portrait: portPath + "roy.jpg",
-        anim: animPath + "roy.gif",
-        animCrit: animPath + "roy_crit.gif",
-        animStatic: staticPath + "roy.png",
-        animState: "still",
-        isChosen: false,
-        guard: false,
-        animSpell: "",
-        elixirs: 3,
+    //Roy Allies
         // ally: [
         //     char[0], char[1], char[2], char[4]
         // ],
-        allyCalls: 1,
-        atkBonus: 1
-    };
-
-    var athos = {
-        name: "Athos",
-        level: 20,
-        hp: 40,
-        atk: 30,
-        spd: 20,
-        def: 18,
-        res: 30,
-        crit: 0,
-        hpgr: 0,
-        atkgr: 0,
-        spdgr: 0,
-        defgr: 0,
-        resgr: 0,
-        portrait: portPath + "athos.jpg",
-        anim: animPath + "athos.gif",
-        animStatic: staticPath + "athos.png",
-        animState: "still",
-        isChosen: false,
-        guard: false,
-        animSpell: "",
-        elixirs: 3,
+    //athos allies
         // ally: [
         //     char[0], char[1], char[2], char[3]
         // ],
-        maxHP: 40,
-        atkBonus: 1
-    };
 
-    //End of Player Objects:
-    //Begin Foe Objects:
+    ///END PLAYER OBJECTS///
 
-    var entombed = {
-        name: "Entombed",
-        level: 1,
-        hp: 22,
-        maxHP: 22,
-        atk: 9,
-        spd: 2,
-        def: 0,
-        portrait: portPath + "entombed.png",
-        anim: animPath + "entombed.gif",
-        animStatic: staticPath + "entombed.png",
-        animState: "still",
-        animSpell: false
-    };
+    ///FOE OBJECTS///
 
-    var bael = {
-        name: "Bael",
-        level: 2,
-        hp: 27,
-        maxHP: 27,
-        atk: 12,
-        spd: 5,
-        def: 2,
-        portrait: portPath + "bael.png",
-        anim: animPath + "bael.gif",
-        animStatic: staticPath + "bael.png",
-        animState: "still",
-        animSpell: false
-    };
+    var entombed = new MakeFoe("Entombed", 1, 22, 22, 9, 2, 0, "entombed.png", "entombed.gif", "entombed.png", "still", false, false);
+    var bael = new MakeFoe("Bael", 2, 27, 27, 12, 5, 2, "bael.png", "bael.gif", "bael.png", "still", false, false);
+    var mauthedoog = new MakeFoe("Mauthedoog", 3, 23, 23, 10, 15, 0, "mauthedoog.png", "mauthedoog.gif", "mauthedoog.png", "still", false, false);
+    var deathgoyle = new MakeFoe("Deathgoyle", 4, 32, 32, 12, 6, 7, "deathgoyle.png", "deathgoyle.gif", "deathgoyle.png", "still", false, false);
+    var gwyllgi = new MakeFoe("Gwyllgi", 7, 34, 34, 14, 19, 2, "gwyllgi.jpg", "gwyllgi.gif", "gwyllgi.png", "still", false, false);
+    var cyclops = new MakeFoe("Cyclops", 10, 44, 44, 20, 5, 4, "cyclops.jpg", "cyclops.gif", "cyclops.png", "still", false, false);
+    var dracozombie = new MakeFoe("Draco-Zombie", 15, 40, 40, 18, 12, 5, "dracozombie.png", "dracozombie.gif", "dracozombie.png", "still", true, false);
+    var firedragon = new MakeFoe("FireDragon", 25, 50, 50, 21, 15, 7, "firedragon.jpg", "firedragon.gif", "firedragon.png", "still", true, false);
+    var idunn = new MakeFoe("Idunn", 30, 60, 60, 30, 10, 10, "idunn.png", "idunn.gif", "idunn.png", "still", true, false);
+    var jaffar = new MakeFoe("Jaffar", 20, 30, 30, 20, 24, 5, "jaffar.png", "jaffar.gif", "jaffar.png", "still", false, false);
+    var linus = new MakeFoe("Linus", 14, 43, 43, 22, 14, 7, "linus.png", "linus.gif", "linus.png", "still", false, false);
+    var lloyd = new MakeFoe("Lloyd", 15, 37, 37, 15, 23, 5, "lloyd.jpg", "lloyd.gif", "lloyd.png", "still", false, false);
+    var ursula = new MakeFoe("Ursula", 12, 32, 32, 14, 20, 4, "ursula.jpg", "ursula.gif", "ursula.png", "still", true, false);
+    var lyon = new MakeFoe("Lyon", 25, 55, 55, 23, 12, 8, "lyon.jpg", "lyon.gif", "lyon.png", "still", true, false);
+    var nergal = new MakeFoe( "Nergal", 25, 60, 60, 25, 7, 11, "nergal.png", "nergal.gif", "nergal.png", "still", true, false);
+    var zephiel = new MakeFoe("Zephiel", 25, 50, 50, 24, 3, 15, "zephiel.jpg", "zephiel.gif", "zephiel.png", "still", false, false);
 
-    var mauthedoog = {
-        name: "Mauthedoog",
-        level: 3,
-        hp: 23,
-        maxHP: 23,
-        atk: 10,
-        spd: 15,
-        def: 0,
-        portrait: portPath + "mauthedoog.png",
-        anim: animPath + "mauthedoog.gif",
-        animStatic: staticPath + "mauthedoog.png",
-        animState: "still",
-        animSpell: false
-    };
+    ///END FOE OBJECTS
 
-    var deathgoyle = {
-        name: "Deathgoyle",
-        level: 4,
-        hp: 32,
-        maxHP: 32,
-        atk: 12,
-        spd: 6,
-        def: 7,
-        portrait: portPath + "deathgoyle.png",
-        anim: animPath + "deathgoyle.gif",
-        animStatic: staticPath + "deathgoyle.png",
-        animState: "still",
-        animSpell: false
-    };
+    ///GLOBAL VARIABLES///
 
-    var gwyllgi = {
-        name: "Gwyllgi",
-        level: 7,
-        hp: 34,
-        maxHP: 34,
-        atk: 14,
-        spd: 19,
-        def: 2,
-        portrait: portPath + "gwyllgi.jpg",
-        anim: animPath + "gwyllgi.gif",
-        animStatic: staticPath + "gwyllgi.png",
-        animState: "still",
-        animSpell: false
-    };
-
-    var cyclops = {
-        name: "Cyclops",
-        level: 10,
-        hp: 44,
-        maxHP: 44,
-        atk: 20,
-        spd: 5,
-        def: 4,
-        portrait: portPath + "cyclops.jpg",
-        anim: animPath + "cyclops.gif",
-        animStatic: staticPath + "cyclops.png",
-        animState: "still",
-        animSpell: false
-    };
-
-    var dracozombie = {
-        name: "Draco-Zombie",
-        level: 15,
-        hp: 40,
-        maxHP: 40,
-        atk: 18,
-        spd: 12,
-        def: 5,
-        portrait: portPath + "dracozombie.png",
-        anim: animPath + "dracozombie.gif",
-        animStatic: staticPath + "dracozombie.png",
-        animState: "still",
-        animSpell: true
-    };
-
-    var firedragon = {
-        name: "FireDragon",
-        level: 25,
-        hp: 50,
-        maxHP: 50,
-        atk: 21,
-        spd: 15,
-        def: 7,
-        portrait: portPath + "firedragon.jpg",
-        anim: animPath + "firedragon.gif",
-        animStatic: staticPath + "firedragon.png",
-        animState: "still",
-        animSpell: true
-    };
-
-    var idunn = {
-        name: "Idunn",
-        level: 30,
-        hp: 60,
-        maxHP: 60,
-        atk: 30,
-        spd: 10,
-        def: 10,
-        portrait: portPath + "idunn.png",
-        anim: animPath + "idunn.gif",
-        animStatic: staticPath + "idunn.png",
-        animState: "still",
-        animSpell: true
-    }
-
-    var jaffar = {
-        name: "Jaffar",
-        level: 20,
-        hp: 30,
-        maxHP: 30,
-        atk: 20,
-        spd: 24,
-        def: 5,
-        portrait: portPath + "jaffar.png",
-        anim: animPath + "jaffar.gif",
-        animStatic: staticPath + "jaffar.png",
-        animState: "still",
-        animSpell: false
-    };
-
-    var linus = {
-        name: "Linus",
-        level: 14,
-        hp: 43,
-        maxHP: 43,
-        atk: 22,
-        spd: 14,
-        def: 7,
-        portrait: portPath + "linus.png",
-        anim: animPath + "linus.gif",
-        animStatic: staticPath + "linus.png",
-        animState: "still",
-        animSpell: false
-    };
-
-    var lloyd = {
-        name: "Lloyd",
-        level: 15,
-        hp: 37,
-        maxHP: 37,
-        atk: 15,
-        spd: 23,
-        def: 5,
-        portrait: portPath + "lloyd.jpg",
-        anim: animPath + "lloyd.gif",
-        animStatic: staticPath + "lloyd.png",
-        animState: "still",
-        animSpell: false
-    };
-
-    var ursula = {
-        name: "Ursula",
-        level: 12,
-        hp: 32,
-        maxHP: 32,
-        atk: 14,
-        spd: 20,
-        def: 4,
-        portrait: portPath + "ursula.jpg",
-        anim: animPath + "ursula.gif",
-        animStatic: staticPath + "ursula.png",
-        animState: "still",
-        animSpell: true
-    };
-
-    var lyon = {
-        name: "Lyon",
-        level: 25,
-        hp: 55,
-        maxHP: 55,
-        atk: 23,
-        spd: 12,
-        def: 8,
-        portrait: portPath + "lyon.jpg",
-        anim: animPath + "lyon.gif",
-        animStatic: staticPath + "lyon.png",
-        animState: "still",
-        animSpell: true
-    };
-
-    var nergal = {
-        name: "Nergal",
-        level: 25,
-        hp: 60,
-        maxHP: 60,
-        atk: 25,
-        spd: 7,
-        def: 11,
-        portrait: portPath + "nergal.png",
-        anim: animPath + "nergal.gif",
-        animStatic: staticPath + "nergal.png",
-        animState: "still",
-        animSpell: true
-    };
-
-    var zephiel = {
-        name: "Zephiel",
-        level: 25,
-        hp: 50,
-        maxHP: 50,
-        atk: 24,
-        spd: 3,
-        def: 15,
-        portrait: portPath + "zephiel.jpg",
-        anim: animPath + "zephiel.gif",
-        animStatic: staticPath + "zephiel.png",
-        animState: "still",
-        animSpell: false
-    };
-
-    //End of Foe Objects
-    //End of Character Initialization Area:
-    //
     var chosenOne, chosenFoe, playSong;
     var heroChosen = false, isFoeChosen = false, playMusic = false;
     var char = [lyn, hector, eliwood, roy, athos];
@@ -414,62 +123,77 @@ $(document).ready(function () {
 
     var audioList = [new Audio("http://66.90.93.122/ost/fire-emblem-the-sacred-stones/cgfxplmf/13%20truth%2C%20despair%2C%20and%20hope.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-the-sacred-stones/xggvmrbc/14%20land%20of%20promise.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-the-sacred-stones/zbrakpuu/29%20the%20prince%27s%20despair.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-the-sacred-stones/skcatlcg/31%20sacred%20strength.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-the-sacred-stones/rzrzrbso/44%20lyon.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-the-sacred-stones/jwxdtxdx/45%20lost%20heart.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-25th-anniversary-concert-bonus/bjelkpdm/18.%20Binding%20Blade.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-25th-anniversary-concert-bonus/qpgclfav/19.%20Black%20Fang.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-25th-anniversary-concert-bonus/txzxlpek/24.%20Radiant%20Dawn.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/urfxclbk/08%20Suspicious~%20Wyvern%20Generals%27%20theme.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/qrlkihks/07%20Princess%20of%20Destiny.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/mxfetxjn/09%20Dark%20Priestess.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/rbwrncdz/10%20Whose%20battle.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/jthmbagw/12%20Shaman%20in%20the%20Dark.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/xkhmfeuj/31%20Softly%20with%20Grace.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/booapflv/32%20Everything%20into%20the%20Dark.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/fseaunro/41%20A%20Knight%27s%20Oath.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/qwmdrzet/33%20Campaign%20of%20Fire.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/mxkfeqdb/40%20Together%2C%20We%20Ride%21.mp3"), new Audio("http://66.90.93.122/ost/fire-emblem-6-7-premium-soundtrack/klwvioga/48%20The%20Archsage%20Athos.mp3")]
 
-    //End of Global Variable Initialization:
-    //
+    ///END GLOBAL VARIABLES///
 
+    ///FUNCTIONS///
+
+    //On game over, returns the base stats of playable characters to their base values
     function resetStats() {
         lyn.level = 1, lyn.hp = 30, lyn.maxHP = 30, lyn.atk = 8, lyn.spd = 12, lyn.def = 2, lyn.res = 2;
         hector.level = 1, hector.hp = 35, hector.maxHP = 35, hector.atk = 10, hector.spd = 6, hector.def = 8, hector.res = 1;
         eliwood.level = 1, eliwood.hp = 33, eliwood.maxHP = 33, eliwood.atk = 9, eliwood.spd = 9, eliwood.def = 4, eliwood.res = 7;
         roy.level = 5, roy.hp = 39, roy.maxHP = 39, roy.atk = 15, roy.spd = 12, roy.def = 12, roy.res = 9;
-    }
+    };
 
-    //Unused at the moment. Moves foe into the Arena.
+    //Sets the foe chosen based on value sent
     function foePick(value) {
         isFoeChosen = true;
         $("#foeSelector").empty();
         $("#rerollButton").empty();
         chosenFoe = chosenFoes[value];
-        //console.log(chosenFoe);
-        fillArena(chosenFoe, "#foeSide");
-    }
+        chosenFoe.enterArena();
+    };
 
     //Sets the character chosen based on value sent
     function heroPick(value) {
         heroChosen = true;
         $("#charChooser").empty();
         chosenOne = char[value];
-        //console.log(chosenOne);
-        fillArena(chosenOne, "#playerSide");
+        chosenOne.enterArena();
         setFoeOpt();
         makeReRollable();
     };
 
-    //Attempting to combine similar code by merging fillFArena and fillPArena
-    function fillArena(unit, divSide) {
+    //Displays the unit chosen in the arena
+    function fillArena(divSide) {
         $(divSide).empty();
 
         //Displays name with upper corners of box rounded
-        var topInfo = unit.name;
+        var topInfo = this.name;
 
         //Displays portrait in the middle
-        var portrInfo = unit.portrait;
+        var portrInfo = this.portrait;
 
         //Displays the rest of the info at the bottom with rounded lower corners
-        var botInfo = profBuilder(unit.level, "Level: ", "<br>");
-        botInfo += profBuilder(unit.hp, "HP: ", "");
-        botInfo += profBuilder(unit.maxHP, " / ", "<br>");
-        botInfo += profBuilder(unit.atk, "Attack: ", "&nbsp;&nbsp;");
-        botInfo += profBuilder(unit.spd, "Speed: ", "<br>");
-        botInfo += profBuilder(unit.def, "Defense: ", "");
-        if (unit.hasOwnProperty("res")) {
-            botInfo += profBuilder(unit.res, "&nbsp;&nbsp;Resistance: ", "");
+        var botInfo = profBuilder(this.level, "Level: ", "<br>");
+        botInfo += profBuilder(this.hp, "HP: ", "");
+        botInfo += profBuilder(this.maxHP, " / ", "<br>");
+        botInfo += profBuilder(this.atk, "Attack: ", "&nbsp;&nbsp;");
+        botInfo += profBuilder(this.spd, "Speed: ", "<br>");
+        botInfo += profBuilder(this.def, "Defense: ", "");
+
+        if (this.hasOwnProperty("res")) {
+            botInfo += profBuilder(this.res, "&nbsp;&nbsp;Resistance: ", "");
         };
 
-        $(divSide).append(
-            "<div class='charText topBox'>" + topInfo + "</div>" +
-            "<img class='charImage' src=" + portrInfo + ">" +
-            "<div class='charText botBox'>" + botInfo + "</div>")
+        var arenaCardDiv = $("<div>");
+        arenaCardDiv.addClass("blackBG");
+
+        var arenaTopDiv = $("<div>");
+        arenaTopDiv.addClass("charText topBox")
+        arenaTopDiv.html(topInfo);
+
+        var arenaImageDiv = $("<img>");
+        arenaImageDiv.addClass("charImage");
+        arenaImageDiv.attr("src", portrInfo);
+
+        var arenaBotDiv = $("<div>");
+        arenaBotDiv.addClass("charText botBox");
+        arenaBotDiv.html(botInfo);
+
+        arenaCardDiv.append(arenaTopDiv, arenaImageDiv, arenaBotDiv);
+
+        $(divSide).append(arenaCardDiv);
     };
 
     //Sets and returns parameters
@@ -544,15 +268,15 @@ $(document).ready(function () {
 
     function levelup() {
         console.log("entered level up");
-        chosenOne.level++;
+        this.level++;
         $("#combatLog").prepend("\r\n");
-        chosenOne.res = statup(chosenOne.resgr, chosenOne.res, " Res +1! ");
-        chosenOne.def = statup(chosenOne.defgr, chosenOne.def, " Def +1! ");
-        chosenOne.spd = statup(chosenOne.spdgr, chosenOne.spd, " Spd +1! ");
-        chosenOne.atk = statup(chosenOne.atkgr, chosenOne.atk, " Atk +1! ");
-        chosenOne.maxHP = statup(chosenOne.hpgr, chosenOne.maxHP, "HP +1! ");
-        $("#combatLog").prepend(chosenOne.name + " leveled up!\r\n");
-        fillArena(chosenOne, "#playerSide");
+        this.res = statup(this.resgr, this.res, " Res +1! ");
+        this.def = statup(this.defgr, this.def, " Def +1! ");
+        this.spd = statup(this.spdgr, this.spd, " Spd +1! ");
+        this.atk = statup(this.atkgr, this.atk, " Atk +1! ");
+        this.maxHP = statup(this.hpgr, this.maxHP, "HP +1! ");
+        $("#combatLog").prepend(this.name + " leveled up!\r\n");
+        this.enterArena();
     };
 
     //Percentagewise increase of stats
@@ -599,7 +323,7 @@ $(document).ready(function () {
             combatText(hero, chosenFoe, atkDamage, "");
         }
         chosenFoe.hp -= noNegAtk(atkDamage);
-        fillArena(chosenFoe, "#foeSide");
+        chosenFoe.enterArena();
     };
 
     //Does the math for foe attack
@@ -613,7 +337,7 @@ $(document).ready(function () {
         }
         chosenOne.hp -= noNegAtk(foeDam);
         combatText(chosenFoe, chosenOne, foeDam, "");
-        fillArena(chosenOne, "#playerSide");
+        chosenOne.enterArena();
     };
 
     //Sends combat info to be displayed in the log.
@@ -688,7 +412,7 @@ $(document).ready(function () {
                 chosenFoes = [];
                 setFoeOpt();
                 makeReRollable();
-                levelup();
+                chosenOne.levelup();
                 return true;
             };
         } else {
@@ -775,7 +499,7 @@ $(document).ready(function () {
                     chosenOne.hp = chosenOne.maxHP;
                     elixLog(chosenOne.elixirs);
                     chosenOne.guard = true;
-                    fillArena(chosenOne, "#playerSide");
+                    chosenOne.enterArena();
                     if (chosenFoe != null && chosenFoe != "") {
                         foeAttack();
                     };
