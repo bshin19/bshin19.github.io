@@ -29,9 +29,9 @@ body {
 }
 
 .container {
-    background-color: lightblue;
+    background-color: rgb(173, 216, 230, .7);
     min-height: 400px;
-    opacity: .7;
+    border-radius: 15px;
 }
 
 .answer {

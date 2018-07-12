@@ -33,14 +33,13 @@ $(document).ready(function () {
     }
 
     function aboutFiller(section) {
-        var newDiv;
         if (!about) {
             about = true;
             clickCarrot("#aboutClick");
 
-            newDiv = $("<div>");
-            newDiv.addClass("abouttext")
-            newDiv.html(
+            aboutDiv = $("<div>");
+            aboutDiv.addClass("abouttext")
+            aboutDiv.html(
                 "Enterprising Web Developer with a history of high-quality work. " +
                 "Developed skills as an influential member of a division at Best Buy requiring 60 hour weeks, travel, organization, teamwork, and time management. " +
                 "Currently attending the UMN-Twin Cities Web Development Bootcamp while pursuing a degree in Computer Science with a 3.70 GPA. " +
@@ -48,7 +47,8 @@ $(document).ready(function () {
                 "Created an application that displays crimes near searched areas by integrating the Google Maps API and a crime API. " +
                 "Passionate about tech and excited to learn and grow within the field."
             );
-            $(section).html(newDiv);
+
+            $(section).html(aboutDiv);
         } else {
             about = false;
             $(section).empty();
