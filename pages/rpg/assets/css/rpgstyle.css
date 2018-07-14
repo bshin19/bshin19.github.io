@@ -12,6 +12,11 @@ body {
     border-color: gray;
 }
 
+.blackBG {
+    background-color: black;
+    border-radius: 15px;
+}
+
 .centerGold {
     text-align: center;
     color: gold;
