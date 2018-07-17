@@ -18,7 +18,7 @@ but the application can still be used to roughly compare the safety of individua
 ## The Map
 ![Map](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm.PNG) \
 A Google Map centered in San Francisco occupies most of the screen.\
-This can be interacted with like any standard Google Map.\
+This can be interacted with like any standard Google Map.
 
 ## Searching
 ![Searching](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm1.PNG) \
@@ -45,7 +45,7 @@ When clicked it displays the:
 
 The intended purpose of this "Visit Next" hyperlink is to add the\
 location searched to a list of locations that one might visit during a night on the town.\
-This functionality is currently limited to a trial modal that allows for inputs that aren't validated.\
+This functionality is currently limited to a trial modal that allows for inputs that aren't validated. 
 
 ### Red X
 ![Searching](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm3.PNG) \
