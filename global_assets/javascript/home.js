@@ -17,6 +17,7 @@ $(document).ready(function () {
         var gifResponse = new Card("pages/gifer/gif-response.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
         var trainTime = new Card("pages/traintimer/traintime.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
         var crawlspace = new Card("pages/crawlspace/crawlspace.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
+        var liriBot = new Card("https://bshin19.github.io/liribot/", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
 
         portfolioOpts.push(rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace);
     };
