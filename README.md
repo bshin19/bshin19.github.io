@@ -8,13 +8,13 @@ This portfolio is built using many programming technologies including:
 + HTML
 + CSS
 + Bootstrap
-+ Ajax
++ Ajax 
 The index landing page is organized into three collapsable sections:
 1. About Me
 2. Portfolio
-3. Contact
+3. Contact 
 All of these sections can be active together or inactive in any combination.\
-In an impending update, I plan on saving the status of open/unopen in a cookie\
+In an impending update, the status of open/unopen will be saved in a cookie\
 so that the program remembers what was last left up.\
 This is particularly useful when viewing the portfolio, as returning from portfolio pages\
 Sends the index back to its initial, blank value.
@@ -23,7 +23,7 @@ Sends the index back to its initial, blank value.
 This section contains my brief brand statement.
 
 ## Portfolio
-![Project Options]()
+![Project Options](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/portrm.PNG)
 This section links to all my published gitpage projects. By clicking on a card,\
 users are brought into that deployed version of that project.
 
