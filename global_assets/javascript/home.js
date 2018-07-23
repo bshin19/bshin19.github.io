@@ -18,8 +18,9 @@ $(document).ready(function () {
         var trainTime = new Card("pages/traintimer/traintime.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
         var crawlspace = new Card("pages/crawlspace/crawlspace.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
         var liriBot = new Card("https://github.com/bshin19/liribot", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
+        var hangNode = new Card("https://github.com/bshin19/node-hangman", "global_assets/images/hangman.jpg", "hangman", "Hangman");
 
-        portfolioOpts.push(rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot);
+        portfolioOpts.push(rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode);
     };
 
     function clickCarrot(div) {
