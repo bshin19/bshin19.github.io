@@ -10,13 +10,13 @@ $(document).ready(function () {
             this.title = titleName;
         };
 
-        var rpg = new Card("pages/rpg/rpg.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
-        var psychic = new Card("pages/psychic/psychic.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
-        var trivia = new Card("pages/trivia/trivia-game.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
-        var bearCrystal = new Card("pages/crystal_math/crystalgame.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
-        var gifResponse = new Card("pages/gifer/gif-response.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
-        var trainTime = new Card("pages/traintimer/traintime.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
-        var crawlspace = new Card("pages/crawlspace/crawlspace.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
+        var rpg = new Card("pages/rpg/index.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
+        var psychic = new Card("pages/psychic/index.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
+        var trivia = new Card("pages/trivia/index.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
+        var bearCrystal = new Card("pages/crystal_math/index.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
+        var gifResponse = new Card("pages/gifer/index.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
+        var trainTime = new Card("pages/traintimer/index.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
+        var crawlspace = new Card("pages/crawlspace/index.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
         var liriBot = new Card("https://github.com/bshin19/liribot", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
         var hangNode = new Card("https://github.com/bshin19/node-hangman", "global_assets/images/hangman.jpg", "hangman", "Hangman");
 
