@@ -19,8 +19,9 @@ $(document).ready(function () {
         var crawlspace = new Card("pages/crawlspace/index.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
         var liriBot = new Card("https://github.com/bshin19/liribot", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
         var hangNode = new Card("https://github.com/bshin19/node-hangman", "global_assets/images/hangman.jpg", "hangman", "Hangman");
+        var friender = new Card("https://bs-friender.herokuapp.com/", "global_assets/images/friends.jpg", "friends", "Friend-Finder");
 
-        portfolioOpts.push(rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode);
+        portfolioOpts.push(rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender);
     };
 
     function clickCarrot(div) {
