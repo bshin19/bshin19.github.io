@@ -10,6 +10,8 @@ $(document).ready(function () {
             this.title = titleName;
         };
 
+        var emblemAnims = new Card("https://emblem-anims.herokuapp.com", "global_assets/images/battlefield.jpg", "battle", "Emblem Anims");
+        var foreignExchange = new Card("https://arcane-gorge-10209.herokuapp.com", "global_assets/images/foreign.jpg", "Foreign Langs", "ForeignExchange");
         var rpg = new Card("pages/rpg/index.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
         var psychic = new Card("pages/psychic/index.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
         var trivia = new Card("pages/trivia/index.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
@@ -22,7 +24,7 @@ $(document).ready(function () {
         var friender = new Card("https://bs-friender.herokuapp.com/", "global_assets/images/friends.jpg", "friends", "Friend-Finder");
         var burgerme = new Card("https://warm-shore-35019.herokuapp.com/", "global_assets/images/burger.jpg", "Burger", "Burger Me");
 
-        portfolioOpts.push(rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
+        portfolioOpts.push(emblemAnims, foreignExchange, rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
     };
 
     function clickCarrot(div) {
@@ -44,12 +46,7 @@ $(document).ready(function () {
             aboutDiv = $("<div>");
             aboutDiv.addClass("abouttext")
             aboutDiv.html(
-                "Enterprising Web Developer with a history of high-quality work. " +
-                "Developed skills as an influential member of a division at Best Buy requiring 60 hour weeks, travel, organization, teamwork, and time management. " +
-                "Currently attending the UMN-Twin Cities Web Development Bootcamp while pursuing a degree in Computer Science with a 3.70 GPA. " +
-                "Experienced in HTML, CSS, Bootstrap, Javascript, J-Query, node, APIs, AJAX, firebase, and Agile workflow. " +
-                "Created an application that displays crimes near searched areas by integrating the Google Maps API and a crime API. " +
-                "Passionate about tech and excited to learn and grow within the field."
+                "Enterprising Web Developer with a history of high-quality work. Currently attending the UMN-Twin Cities Web Development Bootcamp while pursuing a degree in Computer Science with a 3.70 GPA. Experienced in HTML, CSS, Bootstrap, handlebars, Javascript, J-Query, node.js, APIs, AJAX, Firebase, mysql, sequelize, and the Agile workflow. Created an application for an online community that compiles their open source works and displays them in an accessible fashion and another app that allows users to correct translations and vote on the best way of speaking in foreign languages. Passionate about tech and excited to learn and grow within the field."
             );
 
             $(section).html(aboutDiv);
