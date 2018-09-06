@@ -28,8 +28,8 @@ $(document).ready(function () {
     };
 
     function clickCarrot(div) {
-        $(div).prepend("< ");
-        $(div).append(" >");
+        // $(div).prepend("< ");
+        // $(div).append(" >");
         $(div).css("color", "gold");
     };
 
@@ -83,7 +83,7 @@ $(document).ready(function () {
                 var aLink = $("<a>");
                 aLink.attr("href", portfolioOpts[i].page);
 
-                aLink.append(portImage,portText)
+                aLink.append(portImage, portText)
                 colDiv.append(aLink);
                 rowDiv.append(colDiv);
                 $(section).html(rowDiv);
@@ -95,50 +95,49 @@ $(document).ready(function () {
         }
     };
 
-    function formBuilder(labelTitle, labelHTML, placeholdTitle, isMessBox) {
+    function conLink(link, img, text) {
 
-        var colDiv = $("<div>");
-        colDiv.addClass("form-group");
+        var mid = $("<div>")
+            .addClass("col-lg-4 col-12")
 
-        var inputLabel = $("<label>");
-        inputLabel.attr("for", labelTitle);
-        inputLabel.html(labelHTML);
-        
-        if (!isMessBox) {
-            var inputInfo = $("<input>");
-            inputInfo.addClass("form-control contact-width");
-            inputInfo.attr("id", labelTitle);
-            inputInfo.attr("placeholder", placeholdTitle);
-        } else {
-            var inputInfo = $("<textarea>");
-            inputInfo.addClass("form-control");
-            inputInfo.attr("id", labelTitle);
-            inputInfo.attr("rows", placeholdTitle);
+        var midA = $("<div>")
+            .addClass("contactLink");
+
+        if (link) {
+            midA = $("<a>")
+            .addClass("contactLink")
+            .attr("href", link);
         };
 
-        colDiv.append(inputLabel, inputInfo);
-        return colDiv
+        var midImg = $("<img>")
+            .attr("src", "global_assets/images/" + img);
+
+        var midSpan = $("<span>")
+            .html(" " + text);
+
+        midA.append(midImg, midSpan);
+        mid.append(midA);
         
-    };
+        return mid;
+    }
 
     function conFiller() {
         if (!contact) {
             contact = true;
             clickCarrot("#conClick");
 
-            var nameForm = $("<form>");
+            var conDiv = $("<div>")
+                .addClass("row");
 
-            var inEmail = formBuilder("inputEmail", "Email", "Johndoe@Example.com", false);
-            var inName = formBuilder("inputName", "Name", "John Doe", false);
-            var inMess = formBuilder("messagebox", "Message", 5, true);
+            var gitDiv = conLink("https://github.com/bshin19", "logo_github.png", "Github");
 
-            var subBtn = $("<button>");
-            subBtn.addClass("btn btn-primary");
-            subBtn.attr("type", "submit");
-            subBtn.html("Submit");
+            var linkDiv = conLink("https://linkedin.com/in/bradyshinners", "logo_linkedin.png", "Linkedin");
+            
+            var emailDiv = conLink("", "logo_gmail.png", "brady.shinners@gmail.com");
 
-            nameForm.append(inEmail, inName, inMess, subBtn);
-            $("#contactFill").append(nameForm);
+            conDiv.append(gitDiv, linkDiv, emailDiv);
+
+            $("#contactFill").append("<br>", conDiv, "<br>");
 
         } else {
             contact = false;

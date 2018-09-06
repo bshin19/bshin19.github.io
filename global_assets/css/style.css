@@ -26,7 +26,7 @@ h1 {
 
 #sideBar {
     text-align: center;
-    background: rgba(143, 127, 127, 0.7);
+    background: rgba(143, 127, 127, 0.94);
     border: 1px solid black;
     border-radius: 8px;
 }
@@ -70,7 +70,7 @@ h1 {
 #mainBody {
     border-radius: 8px;
     border: 1px solid black;
-    background: rgba(143, 127, 127, 0.7);
+    background: rgba(143, 127, 127, 0.94);
 }
 
 /*Footer Styles*/
@@ -112,6 +112,12 @@ h1 {
 .contactwidth {
     box-sizing: initial;
     box-sizing: 70%;
+}
+
+.contactLink {
+    color: black;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 /*Remove off-center of header*/
