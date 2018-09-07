@@ -28,40 +28,62 @@
         <!--Row 1-->
         <div class="row">
             <!--Side navbar-->
-            <nav class="nav flex-column col-lg-2 col-md-2 col-sm-2 mr-auto" id="sideBar">
+            <nav class="nav flex-column col-lg-2 col-md-2 col-sm-2 mr-auto blue" id="sideBar">
                 <img id="navPic" src="global_assets/images/closeup.jpg" alt="Self-Pic">
-                <a class="nav-link" id="aboutClick">About</a>
-                <a class="nav-link" id="portClick">Portfolio</a>
-                <a class="nav-link" id="conClick">Contact</a>
+                <a class="nav-link" data-clicked="false" id="aboutClick">About</a>
+                <a class="nav-link" data-clicked="false" id="portClick">Portfolio</a>
+                <a class="nav-link" data-clicked="false" id="conClick">Contact</a>
             </nav>
 
             <div class="col-lg-9 col-md-9 col-sm-10" id="mainBody">
 
                 <!--Body Row 1: Header-->
                 <div class="row headerUnder">
-                    <h1 class="col-12 headerText">
-                        Full-Stack Developer
+                    <h1 class="col-12 headerText green">
+                        // Full-Stack Developer
                     </h1>
                 </div>
 
-                <!--Body Row 2: About Placeholder-->
+                <!--Row contains the about, portfolio, and contact rows. Visual Studio Style number line added in small col-->
                 <div class="row">
-                    <div class="col-12" id="aboutFill">
-                        <!--Filled with Javascript on click-->
+                    <div class="col-1" id="numline">
+                        <!--Numbers--><br><br><br><br><br><br><br><br>
                     </div>
-                </div>
 
-                <!--Body Row 3: Portfolio Placeholder-->
-                <div class="row">
-                    <div class="col-12" id="portFill">
-                        <!--Filled with Javascript on click-->
-                    </div>
-                </div>
+                    <div class="col-11">
 
-                <!--Body Row 4: Contact Placeholder-->
-                <div class="row">
-                    <div class="col-12" id="contactFill">
-                        <!--Filled with Javascript on click-->
+                        <!--fake function text for fun-->
+                        <div class="row">
+                            <div class="col-11 mt-1" id="funkPalace">
+                                <span class="blue">function </span>
+                                <span class="green">awaitingCommand</span><span class="white">() { ...</span>
+                            </div>
+                        </div>
+
+                        <!--Body Row 2: About Placeholder-->
+                        <div class="row">
+                            <div class="col-12" id="aboutFill">
+                                <!--Filled with Javascript on click-->
+                            </div>
+                        </div>
+
+                        <!--Body Row 3: Portfolio Placeholder-->
+                        <div class="row">
+                            <div class="col-12" id="portFill">
+                                <!--Filled with Javascript on click-->
+                            </div>
+                        </div>
+
+                        <!--Body Row 4: Contact Placeholder-->
+                        <div class="row">
+                            <div class="col-12" id="contactFill">
+                                <!--Filled with Javascript on click-->
+                            </div>
+                            <div class="col-12 white">
+                                }
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>

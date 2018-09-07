@@ -2,7 +2,12 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     background: url("../images/mountains0.jpg") fixed bottom right;
-    color: black;
+}
+
+#numline {
+    background: url("../images/vsnl.PNG");
+    background-position: 45% top;
+    background-size: 140% auto;
 }
 
 h1 {
@@ -26,7 +31,7 @@ h1 {
 
 #sideBar {
     text-align: center;
-    background: rgba(143, 127, 127, 0.94);
+    background: rgb(30, 30, 30);
     border: 1px solid black;
     border-radius: 8px;
 }
@@ -70,7 +75,23 @@ h1 {
 #mainBody {
     border-radius: 8px;
     border: 1px solid black;
-    background: rgba(143, 127, 127, 0.94);
+    background: rgb(30, 30, 30);
+}
+
+.green {
+    color: rgb(106, 153, 85);
+}
+
+.blue {
+    color: rgb(114, 157, 179);
+}
+
+.white {
+    color: rgb(156, 202, 196);
+}
+
+.red {
+    color: rgb(195, 96, 44);
 }
 
 /*Footer Styles*/
@@ -94,7 +115,7 @@ h1 {
 }
 
 .portfoliotext {
-    background-color: rgba(105, 105, 214, 0.884);
+    background-color: rgb(106, 153, 85);
     color: white;
     width: 160px;
     max-height: 50px;
@@ -115,9 +136,21 @@ h1 {
 }
 
 .contactLink {
-    color: black;
+    color: rgb(114, 157, 179);
     display: table-cell;
     vertical-align: middle;
+}
+
+@media only screen and (max-width: 550px) {
+    .portfolioimages {
+        height: 120px;
+        width: 120px;
+    }
+    .portfoliotext {
+        width: 120px;
+        margin: 110px 0px;
+        font-size: 14px;
+    }
 }
 
 /*Remove off-center of header*/

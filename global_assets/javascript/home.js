@@ -1,6 +1,11 @@
 $(document).ready(function () {
     var about = false, portfolio = false, contact = false;
     var portfolioOpts = [];
+    var funkDefaults = [
+        "blowdryingCode", "eatingCookies", "camelCasingCamels", "googlingAndGoggling",
+        "RESTing", "drinkingJavascript", "queryingJQuery", "nimbleAndAgile", 
+        "automatingAPIs", "grabbingBootstraps"
+    ]
 
     function buildPortfolio() {
         function Card(filepath, imagepath, altName, titleName) {
@@ -27,40 +32,39 @@ $(document).ready(function () {
         portfolioOpts.push(emblemAnims, foreignExchange, rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
     };
 
-    function clickCarrot(div) {
-        // $(div).prepend("< ");
-        // $(div).append(" >");
-        $(div).css("color", "gold");
-    };
+    function clickCarrot(divID, clickedDiv, added, removed) {
+        console.log(clickedDiv)
+        if (clickedDiv.getAttribute("data-clicked") == "true") {
+            $(divID).removeAttr("style");
+            clickedDiv.setAttribute("data-clicked", false)
+            funkReplace(removed);
+        } else {
+            $(divID).css("color", "gold");
+            clickedDiv.setAttribute("data-clicked", true)
+            funkReplace(added);
+        }
 
-    function cleanCarrot(div, cleanText) {
-        $(div).text(cleanText);
-        $(div).removeAttr("style");
-    }
+    };
 
     function aboutFiller(section) {
         if (!about) {
             about = true;
-            clickCarrot("#aboutClick");
 
             aboutDiv = $("<div>");
-            aboutDiv.addClass("abouttext")
+            aboutDiv.addClass("abouttext red ml-2")
             aboutDiv.html(
                 "Enterprising Web Developer with a history of high-quality work. Currently attending the UMN-Twin Cities Web Development Bootcamp while pursuing a degree in Computer Science with a 3.70 GPA. Experienced in HTML, CSS, Bootstrap, handlebars, Javascript, J-Query, node.js, APIs, AJAX, Firebase, mysql, sequelize, and the Agile workflow. Created an application for an online community that compiles their open source works and displays them in an accessible fashion and another app that allows users to correct translations and vote on the best way of speaking in foreign languages. Passionate about tech and excited to learn and grow within the field."
             );
 
             $(section).html(aboutDiv);
         } else {
-            about = false;
-            $(section).empty();
-            cleanCarrot("#aboutClick", "About")
+            $(section).toggle();
         };
     };
 
     function portFiller(section) {
         if (!portfolio) {
             portfolio = true;
-            clickCarrot("#portClick");
 
             //var columns = 0;
 
@@ -89,9 +93,7 @@ $(document).ready(function () {
                 $(section).html(rowDiv);
             };
         } else {
-            portfolio = false;
-            $(section).empty();
-            cleanCarrot("#portClick", "Portfolio");
+            $(section).toggle();
         }
     };
 
@@ -124,10 +126,9 @@ $(document).ready(function () {
     function conFiller() {
         if (!contact) {
             contact = true;
-            clickCarrot("#conClick");
 
             var conDiv = $("<div>")
-                .addClass("row");
+                .addClass("row white");
 
             var gitDiv = conLink("https://github.com/bshin19", "logo_github.png", "Github");
 
@@ -140,23 +141,44 @@ $(document).ready(function () {
             $("#contactFill").append("<br>", conDiv, "<br>");
 
         } else {
-            contact = false;
-            cleanCarrot("#conClick", "Contact");
-            $("#contactFill").empty();
+            $("#contactFill").toggle();
         };
     };
 
+    function autoFunk() {
+        setTimeout(function() {
+            $("#funkPalace").html(
+                "<span class='blue'>function </span>" + 
+                "<span class='green'>" + funkDefaults[Math.floor(Math.random() * 10)] + "</span>" + 
+                "<span class='white'>() { ...</span>"
+            )
+            autoFunk();
+        }, 4000);
+    };
+
+    function funkReplace(functName) {
+        $("#funkPalace").html(
+            "<span class='blue'>function </span>" + 
+            "<span class='green'>" + functName + "</span>" + 
+            "<span class='white'>() { ...</span>");
+    }
+
     $("#aboutClick").on("click", function () {
+        console.log("here")
         aboutFiller("#aboutFill");
+        clickCarrot("#aboutClick", this, "millingAbout", "hidingAbout");
     });
 
     $("#portClick").on("click", function () {
         portFiller("#portFill");
+        clickCarrot("#portClick", this, "buildingPortfolio", "terminatingPortfolio");
     });
 
     $("#conClick").on("click", function () {
         conFiller();
+        clickCarrot("#conClick", this, "contactMe", "neverMind");
     });
 
     buildPortfolio();
+    autoFunk();
 });
