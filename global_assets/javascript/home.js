@@ -3,9 +3,15 @@ $(document).ready(function () {
     var portfolioOpts = [];
     var funkDefaults = [
         "blowdryingCode", "eatingCookies", "camelCasingCamels", "googlingAndGoggling",
-        "RESTing", "drinkingJavascript", "queryingJQuery", "nimbleAndAgile", 
-        "automatingAPIs", "grabbingBootstraps"
+        "RESTing", "drinkingJavascript", "queryingJQuery", "nimbleAndAgile",
+        "automatingAPIs", "grabbingBootstraps", "dbMongoBongo", "awaitingCommand"
     ]
+
+    var funkChange = document.getElementById('funkChange');
+    var typewriter = new Typewriter(funkChange, {
+        deleteSpeed: 'fast'
+    });
+    var funkTimer;
 
     function buildPortfolio() {
         function Card(filepath, imagepath, altName, titleName) {
@@ -33,17 +39,19 @@ $(document).ready(function () {
     };
 
     function clickCarrot(divID, clickedDiv, added, removed) {
-        console.log(clickedDiv)
+        clearTimeout(funkTimer);
         if (clickedDiv.getAttribute("data-clicked") == "true") {
             $(divID).removeAttr("style");
             clickedDiv.setAttribute("data-clicked", false)
             funkReplace(removed);
+            autoFunk();
         } else {
             $(divID).css("color", "gold");
             clickedDiv.setAttribute("data-clicked", true)
             funkReplace(added);
+            autoFunk();
         }
-
+        funkTimer();
     };
 
     function aboutFiller(section) {
@@ -107,8 +115,8 @@ $(document).ready(function () {
 
         if (link) {
             midA = $("<a>")
-            .addClass("contactLink")
-            .attr("href", link);
+                .addClass("contactLink")
+                .attr("href", link);
         };
 
         var midImg = $("<img>")
@@ -119,7 +127,7 @@ $(document).ready(function () {
 
         midA.append(midImg, midSpan);
         mid.append(midA);
-        
+
         return mid;
     }
 
@@ -133,7 +141,7 @@ $(document).ready(function () {
             var gitDiv = conLink("https://github.com/bshin19", "logo_github.png", "Github");
 
             var linkDiv = conLink("https://linkedin.com/in/bradyshinners", "logo_linkedin.png", "Linkedin");
-            
+
             var emailDiv = conLink("", "logo_gmail.png", "brady.shinners@gmail.com");
 
             conDiv.append(gitDiv, linkDiv, emailDiv);
@@ -146,21 +154,21 @@ $(document).ready(function () {
     };
 
     function autoFunk() {
-        setTimeout(function() {
-            $("#funkPalace").html(
-                "<span class='blue'>function </span>" + 
-                "<span class='green'>" + funkDefaults[Math.floor(Math.random() * 10)] + "</span>" + 
-                "<span class='white'>() { ...</span>"
-            )
+        funkTimer = setTimeout(function () {
+            funkReplace(funkDefaults[Math.floor(Math.random() * funkDefaults.length)])
             autoFunk();
-        }, 4000);
+        }, 6000);
     };
 
     function funkReplace(functName) {
-        $("#funkPalace").html(
-            "<span class='blue'>function </span>" + 
-            "<span class='green'>" + functName + "</span>" + 
-            "<span class='white'>() { ...</span>");
+
+        typewriter.typeString(functName)
+            .pauseFor(1500)
+            .deleteAll()
+            .start();
+        // $("#funkChange").text(
+        //     functName
+        // )
     }
 
     $("#aboutClick").on("click", function () {
@@ -180,5 +188,9 @@ $(document).ready(function () {
     });
 
     buildPortfolio();
+    typewriter.typeString("helloWorld")
+        .pauseFor(2600)
+        .deleteAll()
+        .start();
     autoFunk();
 });

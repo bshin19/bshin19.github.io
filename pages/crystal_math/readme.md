@@ -1,7 +1,7 @@
 # Honey Bear's Crystal Game
 This application utilizes html, css-bootstrap, and javascript-jquery to play a simple number-check game.
 
-## Project Summary
+## Project Overview
 ![bear](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/bearrm.PNG) \
 A number is saved as a variable in javascript and displayed upon the honeypot\
 while four smaller numbers are randomly generated, saved, and their values are attached to the icons along the bottom.\
