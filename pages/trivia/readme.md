@@ -1,9 +1,12 @@
 # Mythic Gif Trivia
 This application utilizes html, css-bootstrap, javascript/jquery, the Giphy API, and a trivia API to allow users to play a trivia game.
 ## Project Overview
-![Start Screen](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/mythstart.PNG)
-Users engage with the webpage by clicking the start button, at which point the body fills with a random question provided by the trivia api. 
+![Start Screen](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/mythplay.PNG)
+
+Users engage with the webpage by clicking the start button, at which point the body fills with a random question provided by the trivia api.
+
 ![Body](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/mythplay.PNG)
+
 Upon clicking any answer, the user is presented with a gif gathered via the Giphy API.
 
 ### Timer

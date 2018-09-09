@@ -36,9 +36,11 @@ Once all calculations are complete, the combat phase is ended and the user is ab
 
 #### Use Elixir
 ![Elixir Use](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgelix.PNG)
+
 Each hero is initially given 3 elixirs. These elixirs fully restore their HP and place them in guard mode.
 * If used between foe selection, elixirs have no penalty.
 * If used during combat, the foe will attack following the elixir's heal. Damage will be reduced due to the guard effect but it also breaks the guard effect.
+
 ![Elixir Gone](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgelixout.PNG)
 * Once all elixirs have been used the user is no longer able to use this option. They can still select the "Elixir" button, however nothing will happen.
 
