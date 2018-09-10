@@ -1,0 +1,159 @@
+/* Color Settings to Use
+
+Teal color (used for headings and backgrounds): #4aaaa5
+
+Regular font color: #777777
+
+Main header background color: #ffffff
+
+Main header border color: #cccccc
+
+Footer background color: #666666
+
+Main content background color: #ffffff
+
+Main content border color: #dddddd
+
+*/
+
+/* Fonts
+
+For heading fonts use font-family: 
+    'Georgia', Times, Times New Roman, serif;
+For all other fonts use 
+    'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+
+*/
+
+/*Body Styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("/Users/Brady/Desktop/Coding Program/basic-portfolio/assets/images/darkness.png");
+}
+
+/*Adjust style of links to remove blue, underline, etc*/
+a {
+    text-decoration: none;
+    color: #4aaaa5;
+}
+
+/*Begin Universal styling*/
+
+/* Universal Nav Bar Styling */
+nav {
+    border-bottom: 1px solid #cccccc;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+/*Universal Owner's name*/
+#nameplate {
+    background-color: #4aaaa5;
+    color: #ffffff;
+    margin-left: 20%;
+    padding: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: fit-content;
+}
+
+/*Universal Nav Bar*/
+address {
+    float: right;
+    padding: 15px;
+    margin-top: -50px;
+    color: #4aaaa5;
+    margin-right: 5%;
+}
+
+/*Universal (post-header) Body*/
+section {
+    width: 960px;
+    margin: 70px 20%;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+/*Universal Header style for Body section*/
+.pageplate {
+    font-size: 24px;
+    color: #4aaaa5;
+    padding: 20px 0;
+    border-bottom: 1px solid #4aaaa5;
+    margin: 0 20px;
+}
+
+/*Body general shape*/
+div {
+    margin-top: 20px;
+    height: 230px;
+    width: 960px;
+}
+
+/*Universal Footer*/
+footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 6px solid #4aaaa5;
+    background-color: #666666;
+    height: 50px;
+    position: absolute;
+    width: 100%;
+    color: #4aaaa5;
+}
+
+/*End Universal Code Begin Index-Specific Code*/
+
+/*"About Me" Photo settings*/
+#mypic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-left: 20px;
+    float: left;
+}
+
+/*"About Me" Text settings"*/
+aside {
+    float: right;
+    margin-top: -200px;
+    margin-left: 240px;
+    padding-right: 20px;
+}
+
+/*End Index-Specific Code*/
+
+/*Portfolio-Specific Code*/
+
+.bottom-left {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    background-color: #4aaaa5;
+    color: #ffffff;
+    height: 10px;
+}
+
+.portfolioimages {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    float: left;
+    padding: 20px;
+}
+
+#portfolioportrait {
+    margin-right: 30%;
+    height: 800px;
+    text-align: center;
+    
+}
+
+.imagesnewline { 
+    clear: both; 
+    float: left; 
+    display: block; 
+    position: relative; 
+}

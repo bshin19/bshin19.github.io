@@ -1,0 +1,243 @@
+/* Color Settings to Use
+
+Teal color (used for headings and backgrounds): #4aaaa5
+
+Regular font color: #777777
+
+Main header background color: #ffffff
+
+Main header border color: #cccccc
+
+Footer background color: #666666
+
+Main content background color: #ffffff
+
+Main content border color: #dddddd
+
+*/
+
+/* Fonts
+
+For heading fonts use font-family: 
+    'Georgia', Times, Times New Roman, serif;
+For all other fonts use 
+    'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+
+*/
+
+/*Body Styling */
+body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.5;
+    background-image: url("../images/darkness.png");
+}
+
+/*Adjust style of links to remove blue, underline, etc*/
+a {
+    text-decoration: none;
+    color: #4aaaa5;
+}
+
+/*Begin Universal styling*/
+
+/* Universal Nav Bar Styling */
+nav {
+    position: fixed;
+    z-index: 99;
+    margin: 0 0 30px;
+    overflow: auto;
+    border-bottom: 2px solid #cccccc;
+    background: #ffffff;
+    width: 100%;
+}
+
+.container { 
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    clear: both;
+}
+
+/*Universal Owner's name*/
+#nameplate {
+    float: left;
+    max-width: 300px;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 0 10px;
+    line-height: 60px;
+    background: #4aaaa5;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/*Universal Nav Bar*/
+address {
+    float: right;
+    margin-top: 20px;
+    margin-right: 5px;
+    color: #4aaaa5;
+}
+
+/*Universal (post-header) Body*/
+section {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    clear: both;
+    border: 1px solid #dddddd;
+    padding-top: 70px;
+    min-height: calc(100vh - 70px);
+  }
+
+/*Universal Header style for Body section*/
+.pageplate {
+    font-size: 24px;
+    margin-left: 10px;
+    color: #4aaaa5;
+    border-bottom: 1px solid #4aaaa5;
+}
+
+/*Body general shape*/
+
+/*Universal Footer*/
+footer {
+    text-align: center;
+    padding-bottom: 20px;
+    border-top: 6px solid #4aaaa5;
+    background-color: #666666;
+    height: 50px;
+    width: 100%;
+    color: #4aaaa5;
+}
+
+/*End Universal Code Begin Index-Specific Code*/
+
+/*"About Me" Photo settings*/
+#mypic {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-left: 20px;
+    float: left;
+}
+
+/*"About Me" Text settings"*/
+aside {
+    float: right;
+    margin-top: -200px;
+    margin-left: 240px;
+    padding-right: 20px;
+}
+
+/*End Index-Specific Code*/
+
+/*Portfolio-Specific Code*/
+
+.work {
+    position: relative;
+    float: left;
+    width: 274px;
+    margin: 20px 0 25px 25px;
+    overflow: auto;
+}
+  
+.work img {
+    width: 100%;
+    border: 0 none;
+    opacity: 0.8;
+    height: 200px;
+}
+  
+.work h3 {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    padding: 15px;
+    font-weight: 300;
+    line-height: 30px;
+    color: #fff;
+    text-align: center;
+    background: #4aaaa5;
+    border-bottom: 0;
+}
+
+.auth-image {
+    float: left;
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
+    margin-right: 25px;
+}
+  
+
+/*Form spacing*/
+#contact-form ul {
+    margin: 0 0 20px 20px;
+}
+  
+#contact-form li {
+    margin-bottom: 10px;
+}
+
+/*Contact form formatting, need further examination*/
+label,
+input[type=text],
+input[type=email],
+textarea {
+    display: block;
+    width: 90%;
+}
+
+input[type=text],
+input[type=email],
+textarea {
+    height: 35px;
+    font-size: 14px;
+    padding-left: 5px;
+    border: 1px solid #ddd;
+}
+
+textarea {
+    height: 200px;
+}
+
+input[type=submit] {
+    padding: 10px 30px;
+    margin: 0px 20px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    background: #4aaaa5;
+    border: 0 none;
+}
+
+@media screen and (max-width: 980px) {
+    .container {
+        max-width: 740px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        max-width: 620px;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+    .container {
+        max-width: 400px;
+    }
+    .pageplate {
+        margin-top: 40px;
+    }
+    address {
+        text-align: center;
+        float: initial;
+    }
+
+}
