@@ -24,6 +24,7 @@ $(document).ready(function () {
         var emblemAnims = new Card("https://emblem-anims.herokuapp.com", "global_assets/images/battlefield.jpg", "battle", "Emblem Anims");
         var foreignExchange = new Card("https://arcane-gorge-10209.herokuapp.com", "global_assets/images/foreign.jpg", "Foreign Langs", "ForeignExchange");
         var rpg = new Card("pages/rpg/index.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
+        var rememorizer = new Card("https://bshin19.github.io/rememorizer/", "global_assets/images/rememorizer.PNG", "Jim Carrey Game", "Rememorizer");
         var psychic = new Card("pages/psychic/index.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
         var trivia = new Card("pages/trivia/index.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
         var bearCrystal = new Card("pages/crystal_math/index.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
@@ -35,7 +36,7 @@ $(document).ready(function () {
         var friender = new Card("https://bs-friender.herokuapp.com/", "global_assets/images/friends.jpg", "friends", "Friend-Finder");
         var burgerme = new Card("https://warm-shore-35019.herokuapp.com/", "global_assets/images/burger.jpg", "Burger", "Burger Me");
 
-        portfolioOpts.push(emblemAnims, foreignExchange, rpg, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
+        portfolioOpts.push(emblemAnims, foreignExchange, rpg, rememorizer, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
     };
 
     function clickCarrot(divID, clickedDiv, added, removed) {
