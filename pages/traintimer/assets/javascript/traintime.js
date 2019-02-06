@@ -1,7 +1,9 @@
 $(document).ready(function () {
 
+    /// GLOBAL VARIABLES ///
+
     //Firebase init info
-    var config = {
+    const config = {
         apiKey: "AIzaSyBdIC4WQVbAX24YcMP1RvlxMpg2skdzhes",
         authDomain: "something-ee161.firebaseapp.com",
         databaseURL: "https://something-ee161.firebaseio.com",
@@ -11,35 +13,37 @@ $(document).ready(function () {
     };
     firebase.initializeApp(config);
 
-    var trainDB = firebase.database();
+    const trainDB = firebase.database();
 
-    //End of Firebase init
+    // End of Firebase init
 
-    ///FUNCTIONS///
+    /// END GLOBAL VARIABLES ///
 
-    //Add loadtime after fixing, add delaychance in future
-    function travelMath(startTime, averageArrive) {
+    /// FUNCTIONS ///
+
+    // Add loadtime after fixing, add delaychance in future
+    const travelMath = (startTime, averageArrive) => {
         //determines the difference in minutes between the initial train start time and now
-        var diffTime = moment().diff(moment(startTime), "minutes");
+        let diffTime = moment().diff(moment(startTime), "minutes");
         diffTime = diffTime % averageArrive;
-            // diffTime += loadTime;
-            // if (Math.floor(Math.random() * 100) < delayChance) {
-            //     diffTime += 15;
-            // };
-        
-        console.log(diffTime);
+        // diffTime += loadTime;
+        // if (Math.floor(Math.random() * 100) < delayChance) {
+        //     diffTime += 15;
+        // };
+
+        //console.log(diffTime);
 
         //Subtracts the remaining time to next arrival from average arrival and returns it
         return (averageArrive - diffTime);
     };
 
     //Sets the future arrival time using the future arrival time and returns it
-    function arrivalHHMM(timeAdded) {
-        var now = moment().format("HH:mm");
-        var nowInt = moment(now, "HH:mm");
-        nowInt = nowInt.add(timeAdded, "m");
-        now = moment(nowInt).format("h:mm a");
-        return now;
+    const arrivalHHMM = timeAdded => {
+        const now = moment().format("HH:mm");
+        const nowInt = moment(now, "HH:mm");
+        const thenInt = nowInt.add(timeAdded, "m");
+        const then = moment(thenInt).format("h:mm a");
+        return then;
     };
 
     ///EVENT LISTENERS///
@@ -48,36 +52,61 @@ $(document).ready(function () {
     trainDB.ref("trains").on("child_added", function (childSnapshot) {
 
         //Relevant information for page pulled from trainDB
-        var tempTrain = childSnapshot.val().name;
-        var tempDestiny = childSnapshot.val().destination;
-        var tempTime = childSnapshot.val().firstTime;
-        var tempFreq = childSnapshot.val().frequency;
+        const tempTrain = childSnapshot.val().name;
+        const tempDestiny = childSnapshot.val().destination;
+        const tempTime = childSnapshot.val().firstTime;
+        const tempFreq = childSnapshot.val().frequency;
 
         //Calls functions for information that isn't saved to trainDB
-        var tempArriveMin = travelMath(tempTime, tempFreq);
-        var tempArriveTime = arrivalHHMM(tempArriveMin);
+        const tempArriveMin = travelMath(tempTime, tempFreq);
+        const tempArriveTime = arrivalHHMM(tempArriveMin);
 
-        //Table row and column setting with supplied information
-        var trainInfo = "<tr>"
-        trainInfo += "<td>" + tempTrain; //trainName property of object in database
-        trainInfo += "<td>" + tempDestiny; //destination property of object in database
-        trainInfo += "<td>" + tempFreq; //frequency property of object in database
-        trainInfo += "<td>" + tempArriveTime; //nextArrive property of object in database
-        trainInfo += "<td>" + tempArriveMin; //minutesAway is a var that subtracts current time from next arrive
-        trainInfo += "</tr>"
+        const removeButton = $("<button>")
+            .addClass("btn btn-danger remove-button")
+            .attr({
+                "type": "button",
+                "data-id": childSnapshot.key
+            })
+            .text("X");
+
+        const buttonContainer = $("<td>")
+            .append(removeButton);
+
+        //Create and append a new table row
+        const trainInfo = $("<tr>")
+            .append(`<td>${tempTrain}</td>
+            <td>${tempDestiny}</td>
+            <td>${tempFreq}</td>
+            <td>${tempArriveTime}</td>
+            <td>${tempArriveMin}</td>`)
+            .append(buttonContainer);
 
         $("#trainsTable").append(trainInfo);
     });
 
-    //Function that adds info from the boxes to the database and appends it to the webpage.
+    // Listener for clicks upon the delete button
+    $("body").on("click", ".remove-button", function () {
+
+        //Get the unique Firebase key from the button element
+        const uniqueKey = $(this).attr("data-id");
+
+        console.log(uniqueKey);
+        //Remove data node with matching key in Firebase
+        trainDB.ref("trains").child(uniqueKey).remove();
+
+        //Delete the row locally so page and or firebase doesn't need to be refreshed to show this change in the table
+        $(this).closest("tr").remove();
+    });
+
+    // Listener for clicks on the submit button. Adds all data to the database, then places upon the webpage.
     $("#trainSubmit").on("click", function () {
         event.preventDefault();
-        tempTrain = $("#nameInput").val().trim();
-        tempDestiny = $("#destinInput").val().trim();
-        tempTime = $("#timeInput").val().trim();
-        tempFreq = $("#freqInput").val().trim();
-        tempLoadSpd = Math.floor(Math.random() * 10); //Length of load-unload time on arrival
-        tempDelay = tempTrain.length * 5; //Percent chance of train breakdown
+        const tempTrain = $("#nameInput").val().trim();
+        const tempDestiny = $("#destinInput").val().trim();
+        let tempTime = $("#timeInput").val().trim();
+        const tempFreq = $("#freqInput").val().trim();
+        const tempLoadSpd = Math.floor(Math.random() * 10); //Length of load-unload time on arrival
+        const tempDelay = tempTrain.length * 5; //Percent chance of train breakdown
 
         //Corrects any false user input for time by replacing any characters and the common : with nothing.
         tempTime = tempTime.replace(/[a-z:]/gi, "")

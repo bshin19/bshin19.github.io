@@ -5,7 +5,7 @@ $(document).ready(function () {
         "blowdryingCode", "eatingCookies", "camelCasingCamels", "googlingAndGoggling",
         "RESTing", "drinkingJavascript", "queryingJQuery", "nimbleAndAgile",
         "automatingAPIs", "grabbingBootstraps", "dbMongoBongo", "awaitingCommand"
-    ]
+    ];
 
     var funkChange = document.getElementById('funkChange');
     var typewriter = new Typewriter(funkChange, {
@@ -44,15 +44,15 @@ $(document).ready(function () {
         clearTimeout(funkTimer);
         if (clickedDiv.getAttribute("data-clicked") == "true") {
             $(divID).removeAttr("style");
-            clickedDiv.setAttribute("data-clicked", false)
+            clickedDiv.setAttribute("data-clicked", false);
             funkReplace(removed);
             autoFunk();
         } else {
             $(divID).css("color", "gold");
-            clickedDiv.setAttribute("data-clicked", true)
+            clickedDiv.setAttribute("data-clicked", true);
             funkReplace(added);
             autoFunk();
-        }
+        };
         funkTimer();
     };
 
@@ -104,7 +104,7 @@ $(document).ready(function () {
             };
         } else {
             $(section).toggle();
-        }
+        };
     };
 
     function conLink(link, img, text) {
@@ -131,7 +131,7 @@ $(document).ready(function () {
         mid.append(midA);
 
         return mid;
-    }
+    };
 
     function conFiller() {
         if (!contact) {
@@ -163,7 +163,6 @@ $(document).ready(function () {
     };
 
     function funkReplace(functName) {
-
         typewriter.typeString(functName)
             .pauseFor(1500)
             .deleteAll()
@@ -171,10 +170,9 @@ $(document).ready(function () {
         // $("#funkChange").text(
         //     functName
         // )
-    }
+    };
 
     $("#aboutClick").on("click", function () {
-        console.log("here")
         aboutFiller("#aboutFill");
         clickCarrot("#aboutClick", this, "millingAbout", "hidingAbout");
     });

@@ -167,6 +167,7 @@ $(document).ready(function () {
     var chosenOne, chosenFoe, playSong;
     var heroChosen = false, isFoeChosen = false, playMusic = false;
     var char = [lyn, hector, eliwood, roy, athos];
+    console.log(char)
     var foes = [bael, cyclops, deathgoyle, dracozombie, entombed, firedragon, gwyllgi, idunn, jaffar, linus, lloyd, lyon, mauthedoog, nergal, ursula, zephiel]
     var chosenFoes = [];
     var levelupSE = new Audio("../rpg/assets/sound/se/levelup.wav");
