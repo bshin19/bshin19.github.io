@@ -1,196 +1,279 @@
 $(document).ready(function () {
-    var about = false, portfolio = false, contact = false;
-    var portfolioOpts = [];
-    var funkDefaults = [
-        "blowdryingCode", "eatingCookies", "camelCasingCamels", "googlingAndGoggling",
-        "RESTing", "drinkingJavascript", "queryingJQuery", "nimbleAndAgile",
-        "automatingAPIs", "grabbingBootstraps", "dbMongoBongo", "awaitingCommand"
-    ];
+	let isAboutOpen = false, isPortfolioOpen = false, isContactMeOpen = false;
+	const portfolioList = [];
+	const funkDefaults = [
+		"blowdryingCode", "eatingCookies", "camelCasingCamels", "googlingAndGoggling",
+		"RESTing", "drinkingJava", "queryingJQuery", "nimbleAndAgile", "whatRhymesWithMaterialUI",
+		"automatingAPIs", "grabbingBootstraps", "dbMongoBongo", "awaitingCommand",
+		"spinningYarn", "openingStorybook", "typingJavascript", "invokingLeeroyJenkins",
+		"drainingBitbucket", "eatingApple", "developingMacrosoft", "onlyTabsNeverSpaces",
+		"climbingBabel", "packingTheWeb", "testingJests", "feedingRedux", "hookingReact"
+	];
 
-    var funkChange = document.getElementById('funkChange');
-    var typewriter = new Typewriter(funkChange, {
-        deleteSpeed: 'fast'
-    });
-    var funkTimer;
+	const funkChange = document.getElementById('funkChange');
+	const typewriter = new Typewriter(funkChange, {
+		deleteSpeed: 'fast'
+	});
 
-    function buildPortfolio() {
-        function Card(filepath, imagepath, altName, titleName) {
-            this.page = filepath;
-            this.image = imagepath;
-            this.alt = altName;
-            this.title = titleName;
-        };
+	const funkTimer = () => (setTimeout(function () {
+		funkTextReplace(funkDefaults[Math.floor(Math.random() * funkDefaults.length)])
+		cycleFunkText();
+	}, 6000))
 
-        var emblemAnims = new Card("https://emblem-anims.herokuapp.com", "global_assets/images/battlefield.jpg", "battle", "Emblem Anims");
-        var foreignExchange = new Card("https://arcane-gorge-10209.herokuapp.com", "global_assets/images/foreign.jpg", "Foreign Langs", "ForeignExchange");
-        var nytnews = new Card("https://nytappbps.herokuapp.com", "global_assets/images/news.jpg", "Newspaper", "NYT", "NYT Search")
-        var rpg = new Card("pages/rpg/index.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
-        var rememorizer = new Card("https://bshin19.github.io/rememorizer/", "global_assets/images/rememorizer.PNG", "Jim Carrey Game", "Rememorizer");
-        var psychic = new Card("pages/psychic/index.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
-        var trivia = new Card("pages/trivia/index.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
-        var bearCrystal = new Card("pages/crystal_math/index.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
-        var gifResponse = new Card("pages/gifer/index.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
-        var trainTime = new Card("pages/traintimer/index.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
-        var crawlspace = new Card("pages/crawlspace/index.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
-        var liriBot = new Card("https://github.com/bshin19/liribot", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
-        var hangNode = new Card("https://github.com/bshin19/node-hangman", "global_assets/images/hangman.jpg", "hangman", "Hangman");
-        var friender = new Card("https://bs-friender.herokuapp.com/", "global_assets/images/friends.jpg", "friends", "Friend-Finder");
-        var burgerme = new Card("https://warm-shore-35019.herokuapp.com/", "global_assets/images/burger.jpg", "Burger", "Burger Me");
+	function buildPortfolio() {
+		/**
+		 * Generator function that contains all the data for the portfolio items
+		 *
+		 * @param {string} filepath relative path or link to deployed site
+		 * @param {string} imagepath relative path for item's image
+		 * @param {string} altName a11y text for image
+		 * @param {string} titleName portfolio item name
+		 * @param {string} description portfolio item description
+		 * @param {string[]} technologies list of technologies used for project
+		 */
+		function PortfolioItem(filepath, imagepath, altName, titleName, description, technologies) {
+			this.page = filepath;
+			this.image = imagepath;
+			this.alt = altName;
+			this.title = titleName;
+			this.description = description;
+			this.technologies = technologies;
+		};
 
-        portfolioOpts.push(emblemAnims, foreignExchange, nytnews, rpg, rememorizer, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
-    };
+		const emblemAnims = new PortfolioItem(
+			"https://emblem-anims.herokuapp.com",
+			"global_assets/images/battlefield.jpg", 
+			"Emblem Anims Link", 
+			"Emblem Anims",
+			"Developed a website that presents an online community's custom assets in a more visually appealing way for downloading and comparison.",
+			[ "React", "mySQL", "Storybook.js", "Typescript", "Redux", "Node.js", "Express.js", "CSS", "HTML", "Handlebars", ]
+		);
 
-    function clickCarrot(divID, clickedDiv, added, removed) {
-        clearTimeout(funkTimer);
-        if (clickedDiv.getAttribute("data-clicked") == "true") {
-            $(divID).removeAttr("style");
-            clickedDiv.setAttribute("data-clicked", false);
-            funkReplace(removed);
-            autoFunk();
-        } else {
-            $(divID).css("color", "gold");
-            clickedDiv.setAttribute("data-clicked", true);
-            funkReplace(added);
-            autoFunk();
-        };
-        funkTimer();
-    };
+		const bestBuyPatternLibrary = new PortfolioItem(
+			'',
+			'global_assets/images/bby.jpg',
+			'',
+			'Pattern Library',
+			'Maintained a React-based Pattern Library used across Best Buy, requiring regular discussion and alignment between development, UX, and Accessibility.',
+			[ "React", "Typescript", "Grunt", "Webpack", "CSS", "Less" ]
+		)
 
-    function aboutFiller(section) {
-        if (!about) {
-            about = true;
+		const bestBuyGVP = new PortfolioItem(
+			'',
+			'global_assets/images/bby.jpg',
+			'',
+			'JS Platform',
+			'Maintained, updated, deployed, and provided ongoing developer support for the front-end of Best Buy\'s browser platform.',
+			[ "React", "Node.js", "Typescript", "Lerna", "Yarn", "Webpack", "Express.js" ]
+		)
 
-            aboutDiv = $("<div>");
-            aboutDiv.addClass("abouttext red ml-2")
-            aboutDiv.html(
-                "Enterprising Web Developer with a history of high-quality work. Currently attending the UMN-Twin Cities Web Development Bootcamp while pursuing a degree in Computer Science with a 3.70 GPA. Experienced in HTML, CSS, Bootstrap, handlebars, Javascript, J-Query, node.js, APIs, AJAX, Firebase, mysql, sequelize, and the Agile workflow. Created an application for an online community that compiles their open source works and displays them in an accessible fashion and another app that allows users to correct translations and vote on the best way of speaking in foreign languages. Passionate about tech and excited to learn and grow within the field."
-            );
+		const bestBuyCMS = new PortfolioItem(
+			'',
+			'global_assets/images/bby.jpg',
+			'',
+			'CMS',
+			'Developed an internal Content Management System for business and developer consumption to create reusable rule-based dynamic webpage layouts.',
+			[ "React", "Node.js", "Typescript", "Webpack", "Redux" ]
+		)
+		// var foreignExchange = new Card("https://arcane-gorge-10209.herokuapp.com", "global_assets/images/foreign.jpg", "Foreign Langs", "ForeignExchange");
+		// var nytnews = new Card("https://nytappbps.herokuapp.com", "global_assets/images/news.jpg", "Newspaper", "NYT", "NYT Search")
+		// var rpg = new Card("pages/rpg/index.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
+		// var rememorizer = new Card("https://bshin19.github.io/rememorizer/", "global_assets/images/rememorizer.jpg", "Jim Carrey Game", "Rememorizer");
+		// var psychic = new Card("pages/psychic/index.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
+		// var trivia = new Card("pages/trivia/index.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
+		// var bearCrystal = new Card("pages/crystal_math/index.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
+		// var gifResponse = new Card("pages/gifer/index.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
+		// var trainTime = new Card("pages/traintimer/index.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
+		// var crawlspace = new Card("pages/crawlspace/index.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
+		// var liriBot = new Card("https://github.com/bshin19/liribot", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
+		// var hangNode = new Card("https://github.com/bshin19/node-hangman", "global_assets/images/hangman.jpg", "hangman", "Hangman");
+		// var friender = new Card("https://bs-friender.herokuapp.com/", "global_assets/images/friends.jpg", "friends", "Friend-Finder");
+		// var burgerme = new Card("https://warm-shore-35019.herokuapp.com/", "global_assets/images/burger.jpg", "Burger", "Burger Me");
 
-            $(section).html(aboutDiv);
-        } else {
-            $(section).toggle();
-        };
-    };
+		portfolioList.push(bestBuyPatternLibrary, bestBuyCMS, bestBuyGVP, emblemAnims);
+			// , foreignExchange, nytnews, rpg, rememorizer, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
+	};
 
-    function portFiller(section) {
-        if (!portfolio) {
-            portfolio = true;
+	const clickNavigation = (divID, clickedDiv, added, removed) => {
+		clearTimeout(funkTimer);
+		if (clickedDiv.getAttribute("data-clicked") == "true") {
+			$(divID).removeAttr("style");
+			clickedDiv.setAttribute("data-clicked", false);
+			funkTextReplace(removed);
+			cycleFunkText();
+		} else {
+			$(divID).css("color", "gold");
+			clickedDiv.setAttribute("data-clicked", true);
+			funkTextReplace(added);
+			cycleFunkText();
+		};
+		funkTimer();
+	};
 
-            //var columns = 0;
+	const setAboutMeContents = () => {
+		// generate html once on first invokation, then always hits else
+		if (!isAboutOpen) {
+			isAboutOpen = true;
 
-            var rowDiv = $("<div>");
-            rowDiv.addClass("row");
+			const aboutWrapper = $("<div>")
+				.addClass("abouttext red pl-4 col-12")
+				.html(function() {
+					var intro = `<p class="mb-2">Hi there, I'm Brady.</p>
+						<p class="mb-2">I am a Software Engineer, Consultant, English buff, and casual writer.</p>
+						<p class="mb-3">I am currently engaged at Best Buy, where I develop for the front-end platform.</p>
+					`
 
-            for (var i = 0; i < portfolioOpts.length; i++) {
-                var colDiv = $("<div>");
-                colDiv.addClass("col-lg-4 col-sm-6 col-6 centerSmall");
+					var favoriteLibraries = `
+						<p>Some of my favorite front-end libraries include:
+						<ul>
+						<li>* Typescript</li>
+						<li>* React</li>
+						<li>* Redux</li>
+						<li>* Storybook.js</li>
+						<li>* Webpack</li>
+						<li>* Material-ui</li>
+					`
 
-                var portImage = $("<img>");
-                portImage.addClass("portfolioimages");
-                portImage.attr("src", portfolioOpts[i].image);
-                portImage.attr("alt", portfolioOpts[i].alt);
+					var callToAction = "<p class='my-2'>For a more complete list of my skills, please check out my portfolio.</p>"
 
-                var portText = $("<p>");
-                portText.addClass("portfoliotext");
-                portText.html(portfolioOpts[i].title);
+					return `${intro}${favoriteLibraries}${callToAction}`
+				})
+			$("#aboutContents").html(aboutWrapper);
+		} else {
+			$("#aboutContents").toggle();
+		};
+	};
 
-                var aLink = $("<a>");
-                aLink.attr("href", portfolioOpts[i].page);
+	const setPortfolioContents = () => {
+		// generate html once on first invokation, then always hits else
+		if (!isPortfolioOpen) {
+			isPortfolioOpen = true;
 
-                aLink.append(portImage, portText)
-                colDiv.append(aLink);
-                rowDiv.append(colDiv);
-                $(section).html(rowDiv);
-            };
-        } else {
-            $(section).toggle();
-        };
-    };
+			portfolioList.forEach((portfolioItem) => {
+				const portfolioItemImage = $("<img>")
+					.addClass("portfolioimages")
+					.attr("src", portfolioItem.image)
+					.attr("alt", portfolioItem.alt || portfolioItem.title);
 
-    function conLink(link, img, text) {
+				const portfolioItemText = $("<p>")
+					.addClass("portfolioTitle")
+					.html(portfolioItem.title);
 
-        var mid = $("<div>")
-            .addClass("col-lg-4 col-12")
+				let portfolioItemLink;
 
-        var midA = $("<div>")
-            .addClass("contactLink");
+				if (portfolioItem.page) {
+					portfolioItemLink = $("<a>")
+						.attr("href", portfolioItem.page)
+						.append(portfolioItemImage, portfolioItemText);
+				} else {
+					portfolioItemLink = $("<span>")
+						.append(portfolioItemImage, portfolioItemText);
+				}
 
-        if (link) {
-            midA = $("<a>")
-                .addClass("contactLink")
-                .attr("href", link);
-        };
 
-        var midImg = $("<img>")
-            .attr("src", "global_assets/images/" + img);
+				const portfolioItemDescription = $("<p>")
+					.addClass('my-3 white')
+					.html(portfolioItem.description);
 
-        var midSpan = $("<span>")
-            .html(" " + text);
+				const portfolioItemList = $("<p>")
+					.addClass('red')
+					.html(() => '<span class="blue">const </span><span class="white">technologies = [ </span>"' + portfolioItem.technologies.join('", "') + '"<span class="white"> ]</span>');
 
-        midA.append(midImg, midSpan);
-        mid.append(midA);
+				const portfolioItemContent = $("<div>")
+					.addClass('col-10 d-inline-block align-top green portfolioText')
+					.append(portfolioItemDescription, portfolioItemList)
 
-        return mid;
-    };
+				const portfolioItemWrapper = $("<div>")
+					.addClass("col-12 my-2")
+					.append(portfolioItemLink, portfolioItemContent);
+				$("#portfolioContents").append(portfolioItemWrapper);
+			})
+		} else {
+			$("#portfolioContents").toggle();
+		};
+	};
 
-    function conFiller() {
-        if (!contact) {
-            contact = true;
+	/**
+	 * Generates a contact link with an image and text.
+	 * 
+	 * @param {string} link hyperlink to website if applicable
+	 * @param {string} img link to image 
+	 * @param {string} text displayed text
+	 */
+	function makeContactMeLink(link, img, text) {
+		const isHyperlink = link
+		let contactMethodWrapper;
 
-            var conDiv = $("<div>")
-                .addClass("row white");
+		if (isHyperlink) {
+			contactMethodWrapper = $("<a>")
+				.addClass("contactLink col-lg-4 col-12")
+				.attr("href", link);
+		} else {
+			contactMethodWrapper = $("<div>")
+				.addClass("contactLink col-lg-4 col-12");
+		};
 
-            var gitDiv = conLink("https://github.com/bshin19", "logo_github.png", "Github");
+		const contactMethodImage = $("<img>")
+			.attr("src", "global_assets/images/" + img);
 
-            var linkDiv = conLink("https://linkedin.com/in/bradyshinners", "logo_linkedin.png", "Linkedin");
+		const contactMethodText = $("<span>")
+			.html(" " + text);
 
-            var emailDiv = conLink("", "logo_gmail.png", "brady.shinners@gmail.com");
+		contactMethodWrapper.append(contactMethodImage, contactMethodText);
 
-            conDiv.append(gitDiv, linkDiv, emailDiv);
+		return contactMethodWrapper;
+	};
 
-            $("#contactFill").append("<br>", conDiv, "<br>");
+	// Generates contactMe HTML and displays it on the page
+	const setContactMeContents = () => {
+		// generate html once on first invokation, then always hits else
+		if (!isContactMeOpen) {
+			isContactMeOpen = true;
 
-        } else {
-            $("#contactFill").toggle();
-        };
-    };
+			const githubLink = makeContactMeLink("https://github.com/bshin19", "logo_github.png", "Github");
+			const linkedInLink = makeContactMeLink("https://linkedin.com/in/bradyshinners", "logo_linkedin.png", "Linkedin");
+			const emailLink = makeContactMeLink("", "logo_gmail.png", "brady.shinners@gmail.com");
 
-    function autoFunk() {
-        funkTimer = setTimeout(function () {
-            funkReplace(funkDefaults[Math.floor(Math.random() * funkDefaults.length)])
-            autoFunk();
-        }, 6000);
-    };
+			$("#contactMe").append(githubLink, linkedInLink, emailLink);
 
-    function funkReplace(functName) {
-        typewriter.typeString(functName)
-            .pauseFor(1500)
-            .deleteAll()
-            .start();
-        // $("#funkChange").text(
-        //     functName
-        // )
-    };
+		} else {
+			$("#contactMe").toggle();
+		};
+	};
 
-    $("#aboutClick").on("click", function () {
-        aboutFiller("#aboutFill");
-        clickCarrot("#aboutClick", this, "millingAbout", "hidingAbout");
-    });
+	const cycleFunkText = () => {
+		setTimeout(() => {
+			funkTextReplace(funkDefaults[Math.floor(Math.random() * funkDefaults.length)])
+			cycleFunkText();
+		}, 6000)
+	};
 
-    $("#portClick").on("click", function () {
-        portFiller("#portFill");
-        clickCarrot("#portClick", this, "buildingPortfolio", "terminatingPortfolio");
-    });
+	const funkTextReplace = functionName => {
+		typewriter.typeString(functionName)
+			.pauseFor(1500)
+			.deleteAll()
+			.start();
+	};
 
-    $("#conClick").on("click", function () {
-        conFiller();
-        clickCarrot("#conClick", this, "contactMe", "neverMind");
-    });
+	$("#toggleAboutMeBtn").on("click", function () {
+		setAboutMeContents();
+		clickNavigation("#toggleAboutMeBtn", this, "millingAbout", "hidingAbout");
+	});
 
-    buildPortfolio();
-    typewriter.typeString("helloWorld")
-        .pauseFor(2600)
-        .deleteAll()
-        .start();
-    autoFunk();
+	$("#togglePortfolioBtn").on("click", function () {
+		setPortfolioContents();
+		clickNavigation("#togglePortfolioBtn", this, "buildingPortfolio", "terminatingPortfolio");
+	});
+
+	$("#toggleContactMeBtn").on("click", function () {
+		setContactMeContents();
+		clickNavigation("#toggleContactMeBtn", this, "contactMe", "neverMind");
+	});
+
+	buildPortfolio();
+	typewriter.typeString("helloWorld")
+		.pauseFor(2600)
+		.deleteAll()
+		.start();
+	cycleFunkText();
 });

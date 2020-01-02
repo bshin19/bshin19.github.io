@@ -3,7 +3,7 @@ This application utilizes html, css, bootstrap, javascript, jquery, moment.js, a
 
 ## Project Overview
 The majority of the page is devoted to the scheduler.
-![Scheduler](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainscheduler.PNG)
+![Scheduler](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainscheduler.jpg)
 
 ### Scheduler
 This section pulls the base info from a firebase database:
@@ -17,12 +17,12 @@ The first three are placed directly into the table.
 * Minutes Away is calculated by determining the difference between the time of next arrival (using the result of the formula above) and the current time.
 
 ### Add section
-![train add](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainadd.PNG)
+![train add](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainadd.jpg)
 
 This section directly interfaces with the firebase database on submit. Sending in data for all the supplied fields. 
 * Currently there is no validation for the submit button.
 
 #### A Train Being Added
-![example add](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainhan.PNG)
+![example add](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainhan.jpg)
 
-![new train](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainschednew.PNG)
+![new train](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/trainschednew.jpg)

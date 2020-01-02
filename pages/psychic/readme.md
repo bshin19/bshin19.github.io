@@ -2,7 +2,7 @@
 This application utilizes html, css, bootstrap, javascript, and JQuery to play a simple letter guess game.
 
 ## Application Overview
-![Body](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/psychic.PNG)
+![Body](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/psychic.jpg)
 Upon page load, a random letter is selected and saved in a variable. The user is able to type in the empty form and any letters typed are compared to the random letter to see if they guessed right.
 
 ### Input Recognition

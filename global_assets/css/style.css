@@ -1,8 +1,7 @@
 /*General Styles*/
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background: url("../images/mountains0.jpg") fixed bottom left;
-    background-size: cover;
+    background: url("../images/wood.jpg") fixed bottom left;
 }
 
 #numline {
@@ -14,6 +13,10 @@ body {
 h1 {
     font-size: 24px;
     line-height: 2;
+}
+
+.vsCodeNumbers {
+	min-height: 130px;
 }
 
 /*NavBar styles*/
@@ -43,6 +46,17 @@ h1 {
     height: auto;
     margin: 4px auto 0;
     border-radius: 50%;
+}
+
+.nav-link {
+	background: none;
+	border: unset;
+	color: unset;
+	width: fit-content;
+}
+
+.nav-link:active, .nav-link:focus {
+	outline: unset;
 }
 
 .nav-link:hover {
@@ -107,27 +121,33 @@ h1 {
 
 /*Portfolio Styles*/
 .portfolioimages {
-    height: 160px;
-    width: 160px;
+    height: 120px;
+	width: 120px;
+	border: 1px solid gold;
     object-fit: cover;
-    float: left;
-    margin: 20px 0;
     border-radius: 10px;
 }
 
-.portfoliotext {
-    background-color: rgb(106, 153, 85);
-    color: white;
-    width: 160px;
-    max-height: 50px;
-    position: absolute;
-    margin: 150px 0px;
+.portfolioTitle {
+    background-color: steelblue;
+	color: white;
+	font-family: serif;
+	font-size: 14px;
+    width: 120px;
+	line-height: 17px;
+	border: 1px solid gold;
+	position: absolute;
+	margin-top: -40px;
     text-align: center;
+}
+
+.portfolioText {
+	line-height: 20px;
 }
 
 /*About Styles*/
 .abouttext {
-    line-height: 1.5;
+	line-height: 1.5;
 }
 
 /*Contact Styles*/

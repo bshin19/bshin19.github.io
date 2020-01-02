@@ -38,10 +38,10 @@ I styled this page by taking the default color values from Visual Studio for all
 This section contains my brief brand statement.
 
 ## Portfolio
-![Project Options](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/portrm.PNG)
+![Project Options](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/portrm.jpg)
 This section links to all my published gitpage projects. By clicking on a card,
 users are brought into that deployed version of that project.
 
 ## Contact
-![Contact Section](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/contact.PNG)
+![Contact Section](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/contact.jpg)
 This section includes hyperlinks that link to my Github profile, Linkedin Account, and professional email.

@@ -16,18 +16,18 @@ certain locations. Current functionality lacks the ability to string locations t
 but the application can still be used to roughly compare the safety of individual locations.
 
 ## The Map
-![Map](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm.PNG) \
+![Map](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm.jpg) \
 A Google Map centered in San Francisco occupies most of the screen.\
 This can be interacted with like any standard Google Map.
 
 ## Searching
-![Searching](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm1.PNG) \
+![Searching](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm1.jpg) \
 For searching, a search bar is located in the header. This provides the main functionality for crawlspace.\
 It uses Google AutoFill to suggest searches near the default location.\
 Note that current searches beyond the San Francisco area *will* work. However, they won't display crimes.
 
 ## Results
-![Results](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm2.PNG) \
+![Results](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm2.jpg) \
 Upon selecting an autofill result or pressing enter in the searchbar, a new location will populate\
 with a green flag on the map.\
 Many red X's will also be placed upon the map. These are the locations of crimes based on their police-reported geolocation.\
@@ -35,7 +35,7 @@ Many red X's will also be placed upon the map. These are the locations of crimes
 Each of these types of map markers can be clicked to reveal more information about the location.
 
 ### Green Flag
-![Location](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm4.PNG) \
+![Location](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm4.jpg) \
 This is the location that results from the user's search using the Google Maps API.\
 When clicked it displays the:
 + Address
@@ -48,7 +48,7 @@ location searched to a list of locations that one might visit during a night on 
 This functionality is currently limited to a trial modal that allows for inputs that aren't validated. 
 
 ### Red X
-![Searching](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm3.PNG) \
+![Searching](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/crawlrm3.jpg) \
 These are placed at the geolocation crime results returned from using the SF Open Data API.\
 These are limited to only crimes occurring in the last year and only crimes within 400 meters of the searched location.
 When clicked, it will display:

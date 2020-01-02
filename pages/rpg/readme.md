@@ -2,15 +2,15 @@
 This application utilizes html, css, bootstrap, javascript, and jquery to play an RPG game involving levelups, combat calculations, unique allies, and unique enemies.
 
 ## Application Overview
-![Start Screen](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgstart.PNG)
+![Start Screen](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgstart.jpg)
 
 ### Getting Started
 1. The user is given the choice of four heroes to play as. These heroes are built using Javascript constructors and saved in variables within an array. Upon selecting a hero, the div is cleared and the hero is placed in "the Arena." 
 2. Beneath the arena, a row of four foes populates. Again, these are built using Javascript constructors and saved in variables within an array. Foe population is entirely randomized but only one of each unique foe may appear at a time. 
     * The user can choose to select one of these foes or click the reroll button to randomly select another set of four foes from the array.
-    * The selection screen will look something like this ![foes](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgfoes.PNG)
+    * The selection screen will look something like this ![foes](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgfoes.jpg)
     * Once a foe has been selected, the foes div is cleared and the selected foe is placed in "the Arena."
-3. ![arena](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgarena.PNG)
+3. ![arena](https://github.com/bshin19/bshin19.github.io/blob/master/global_assets/images/rpgarena.jpg)
     * With both a foe and hero selected, the commands at the center of the arena become functional. The user is able to:
         1. Attack
         2. Use Elixir (3)
