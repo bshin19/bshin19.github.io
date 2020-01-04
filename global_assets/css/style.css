@@ -165,7 +165,8 @@ h1 {
 
 .contactLink {
     color: rgb(114, 157, 179);
-    display: table-cell;
+	display: table-cell;
+	padding: 7px 0;
     vertical-align: middle;
 }
 
