@@ -16,36 +16,26 @@
 </head>
 
 <body>
-	<!--Bootstrap NavBar inserted and modified for personal use-->
-	<nav class="navbar navbar-expand-lg">
-		<a class="navbar-brand" href="index.html">
-			Brady Shinners
-		</a>
-	</nav>
-
-	<!--Rest of body following NavBar-->
 	<div class="container">
 
 		<!--Row 1-->
 		<div class="row">
 			<!--Side navbar-->
-			<nav class="nav flex-column col-2 mr-auto blue" id="sideBar">
+			<nav class="nav flex-column col-2 blue" id="sideBar">
 				<div class="sticky-top">
+					<div>
+						<a class="name" href="index.html">
+							Brady Shinners
+						</a>
+					</div>
 					<img id="navPic" src="global_assets/images/closeup.jpg" alt="Self-Pic">
+						
 					<button type="button" class="nav-link mx-auto" data-clicked="false" id="toggleAboutMeBtn">About</button>
 					<button type="button" class="nav-link mx-auto" data-clicked="false" id="togglePortfolioBtn">Portfolio</button>
 					<button type="button" class="nav-link mx-auto" data-clicked="false" id="toggleContactMeBtn">Contact</button>
 				</div>
-			</nav>
-
-			<div class="col-md-9 col-sm-10" id="mainBody">
-
-				<!--Body Row 1: Header-->
-				<div class="row headerUnder">
-					<h1 class="col-12 headerText green">
-						// Full-Stack Developer
-					</h1>
-				</div>
+		</nav>
+			<div class="col-10" id="mainBody">
 
 				<!--Row contains the about, portfolio, and contact rows. Visual Studio Style number line added in small col-->
 				<div class="row">
@@ -53,11 +43,16 @@
 						<!--Numbers-->
 					</div>
 
-					<div class="col-11">
+					<div class="col-11 editor">
 
 						<!--fake function text for fun-->
 						<div class="row">
-							<div class="col-11 my-2" id="funkPalace">
+							<p class="green codeComment">
+								// Full-Stack Developer
+							</p>
+						</div>
+						<div class="row">
+							<div id="funkPalace">
 								<span class="blue">function </span>
 								<span id="funkChange" class="green">
 									awaitingCommand
@@ -79,11 +74,13 @@
 						</div>
 
 						<!--Body Row 4: Contact Placeholder-->
-						<div class="row white" id="contactMe">
+						<div class="row white my-1" id="contactMe">
 							<!--Filled with Javascript on click-->
 						</div>
-						<div class="white my-2">
-							}
+						<div class="row editor-brace">
+							<div class="white">
+								}
+							</div>
 						</div>
 					</div>
 				</div>

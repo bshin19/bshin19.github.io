@@ -1,6 +1,7 @@
 $(document).ready(function () {
 	let isAboutOpen = false, isPortfolioOpen = false, isContactMeOpen = false;
 	const portfolioList = [];
+	let numLineTotal = 5;
 	const funkDefaults = [
 		"blowdryingCode", "eatingCookies", "camelCasingCamels", "googlingAndGoggling",
 		"RESTing", "drinkingJava", "queryingJQuery", "nimbleAndAgile", "whatRhymesWithMaterialUI",
@@ -19,6 +20,15 @@ $(document).ready(function () {
 		funkTextReplace(funkDefaults[Math.floor(Math.random() * funkDefaults.length)])
 		cycleFunkText();
 	}, 6000))
+
+	const generateNumLine = () => {
+		$("#numline").empty();
+		for (let i = 1; i < numLineTotal; i++) {
+			const number = $("<div>")
+				.html(i)
+			$("#numline").append(number)
+		}
+	}
 
 	function buildPortfolio() {
 		/**
@@ -94,16 +104,20 @@ $(document).ready(function () {
 			// , foreignExchange, nytnews, rpg, rememorizer, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
 	};
 
-	const clickNavigation = (divID, clickedDiv, added, removed) => {
+	const clickNavigation = (divID, clickedDiv, added, removed, extraNums) => {
 		clearTimeout(funkTimer);
 		if (clickedDiv.getAttribute("data-clicked") == "true") {
 			$(divID).removeAttr("style");
 			clickedDiv.setAttribute("data-clicked", false);
+			numLineTotal -= extraNums;
+			generateNumLine();
 			funkTextReplace(removed);
 			cycleFunkText();
 		} else {
 			$(divID).css("color", "gold");
 			clickedDiv.setAttribute("data-clicked", true);
+			numLineTotal += extraNums;
+			generateNumLine();
 			funkTextReplace(added);
 			cycleFunkText();
 		};
@@ -116,25 +130,26 @@ $(document).ready(function () {
 			isAboutOpen = true;
 
 			const aboutWrapper = $("<div>")
-				.addClass("abouttext red pl-4 col-12")
+				.addClass("red col-12")
 				.html(function() {
-					var intro = `<p class="mb-2">Hi there, I'm Brady.</p>
-						<p class="mb-2">I am a Software Engineer, Consultant, English buff, and casual writer.</p>
-						<p class="mb-3">I am currently engaged at Best Buy, where I develop for the front-end platform.</p>
+					var intro = `<div>Hi there, I'm Brady.</div>
+						<p class="mb-0">I am a Software Engineer, Consultant, English buff, and casual writer.</p>
+						<p class="mb-0">I am currently engaged at Best Buy, where I develop for the front-end platform.</p>
 					`
 
 					var favoriteLibraries = `
-						<p>Some of my favorite front-end libraries include:
-						<ul>
+						<p class="mb-0">Some of my favorite front-end libraries include:</p>
+						<ul class="mb-0 pl-3">
 						<li>* Typescript</li>
 						<li>* React</li>
 						<li>* Redux</li>
 						<li>* Storybook.js</li>
 						<li>* Webpack</li>
 						<li>* Material-ui</li>
+						</ul>
 					`
 
-					var callToAction = "<p class='my-2'>For a more complete list of my skills, please check out my portfolio.</p>"
+					var callToAction = "<div>For a more complete list of my skills, please check out my portfolio.</div>"
 
 					return `${intro}${favoriteLibraries}${callToAction}`
 				})
@@ -184,7 +199,7 @@ $(document).ready(function () {
 					.append(portfolioItemDescription, portfolioItemList)
 
 				const portfolioItemWrapper = $("<div>")
-					.addClass("col-12 my-2")
+					.addClass("col-12 my-1")
 					.append(portfolioItemLink, portfolioItemContent);
 				$("#portfolioContents").append(portfolioItemWrapper);
 			})
@@ -257,19 +272,20 @@ $(document).ready(function () {
 
 	$("#toggleAboutMeBtn").on("click", function () {
 		setAboutMeContents();
-		clickNavigation("#toggleAboutMeBtn", this, "millingAbout", "hidingAbout");
+		clickNavigation("#toggleAboutMeBtn", this, "millingAbout", "hidingAbout", 11);
 	});
 
 	$("#togglePortfolioBtn").on("click", function () {
 		setPortfolioContents();
-		clickNavigation("#togglePortfolioBtn", this, "buildingPortfolio", "terminatingPortfolio");
+		clickNavigation("#togglePortfolioBtn", this, "buildingPortfolio", "terminatingPortfolio", 22);
 	});
 
 	$("#toggleContactMeBtn").on("click", function () {
 		setContactMeContents();
-		clickNavigation("#toggleContactMeBtn", this, "contactMe", "neverMind");
+		clickNavigation("#toggleContactMeBtn", this, "contactMe", "neverMind", 2);
 	});
 
+	generateNumLine();
 	buildPortfolio();
 	typewriter.typeString("helloWorld")
 		.pauseFor(2600)

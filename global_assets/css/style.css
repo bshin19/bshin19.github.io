@@ -4,10 +4,13 @@ body {
     background: url("../images/wood.jpg") fixed bottom left;
 }
 
+html {
+	overflow-y: scroll;
+}
+
 #numline {
-    background: url("../images/vsnl.PNG");
-    background-position: 45% top;
-    background-size: 140% auto;
+	color: #707070;
+	text-align: right;
 }
 
 h1 {
@@ -20,24 +23,22 @@ h1 {
 }
 
 /*NavBar styles*/
-.navbar-brand {
-    margin: -8px auto;
-    padding: 12px;
-    color: black;
-    text-shadow: 1px 1px 2px darkgray;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+.name {
+	margin: 4px auto;
+	font-size: 20px;
+	color: unset;
 }
 
-.navbar-brand.hover {
+.name:hover {
     text-decoration: none;
-    color: gray;
+    color: unset;
 }
 
 #sideBar {
     text-align: center;
-    background: rgb(30, 30, 30);
-    border: 1px solid black;
-    border-radius: 8px;
+	background: #252526;
+	color: #CCCCCC;
+    border-radius: 8px 0 0 8px;
 }
 
 #navPic {
@@ -78,19 +79,15 @@ h1 {
 
 /*Main Body Styles*/
 
-.headerText {
-    text-align: center;
-    font-weight: 400;
-}
-
-.headerUnder {
-    border-bottom: 1px solid black;
+.codeComment {
+	margin-bottom: unset;
+	/* display: inline-block; */
 }
 
 #mainBody {
-    border-radius: 8px;
-    border: 1px solid black;
-    background: rgb(30, 30, 30);
+    border-radius: 0 8px 8px 0;
+	background: #1E1E1E;
+	padding-top: 16px;
 }
 
 .green {
@@ -107,6 +104,16 @@ h1 {
 
 .red {
     color: rgb(195, 96, 44);
+}
+
+.editor {
+	line-height: 24px;
+	font-size: 15px;
+}
+
+.editor-brace {
+	line-height: 20px;
+	font-size: 13px;
 }
 
 /*Footer Styles*/
