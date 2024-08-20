@@ -146,7 +146,7 @@ $(document).ready(function () {
 
     const targetDesignSystem = new PortfolioItem(
       "",
-      "glabel_assets/images/tgt.png",
+      "global_assets/images/tgt.png",
       "",
       "Design System",
       "Maintained and improved a widely-utilized design system, including facilitating major releases leading to a greater than 60% reduction in the public-facing API and simpler developer experience.",
