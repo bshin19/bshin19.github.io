@@ -313,14 +313,14 @@ $(document).ready(function () {
         "Github",
       );
       const linkedInLink = makeContactMeLink(
-        "https://linkedin.com/in/bradyshinners",
+        "https://linkedin.com/in/bshinners",
         "logo_linkedin.png",
         "Linkedin",
       );
       const emailLink = makeContactMeLink(
         "",
         "logo_gmail.png",
-        "brady.shinners@gmail.com",
+        "b.shinners@icloud.com",
       );
 
       $("#contactMe").append(githubLink, linkedInLink, emailLink);
