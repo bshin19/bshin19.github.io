@@ -1,0 +1,31 @@
+{
+  "name": "bshin19.github.io",
+  "version": "1.0.0",
+  "description": "Professional Portfolio",
+  "main": "index.html",
+  "scripts": {
+    "format": "npx prettier * --write",
+    "format:check": "npx prettier *",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bshin19/bshin19.github.io.git"
+  },
+  "keywords": [
+    "portfolio"
+  ],
+  "author": "beatrice shinners",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bshin19/bshin19.github.io/issues"
+  },
+  "homepage": "https://github.com/bshin19/bshin19.github.io#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3"
+  }
+}
