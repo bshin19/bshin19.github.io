@@ -187,7 +187,7 @@ $(document).ready(function () {
       const aboutWrapper = $("<div>")
         .addClass("red col-12")
         .html(function () {
-          var intro = `<div>Hi there, I'm Brady.</div>
+          var intro = `<div>Hi there, I'm Beatrice.</div>
 						<p class="mb-0">I am a Software Engineer, Consultant, English buff, and casual writer.</p>
 						<p class="mb-0">I am currently engaged at Best Buy, where I develop for the front-end platform.</p>
 					`;
