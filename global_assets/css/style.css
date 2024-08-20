@@ -1,199 +1,199 @@
 /*General Styles*/
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: url("../images/wood.jpg") fixed bottom left;
+  font-family: Arial, Helvetica, sans-serif;
+  background: url("../images/wood.jpg") fixed bottom left;
 }
 
 html {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 #numline {
-	color: #707070;
-	text-align: right;
+  color: #707070;
+  text-align: right;
 }
 
 h1 {
-    font-size: 24px;
-    line-height: 2;
+  font-size: 24px;
+  line-height: 2;
 }
 
 .vsCodeNumbers {
-	min-height: 130px;
+  min-height: 130px;
 }
 
 /*NavBar styles*/
 .name {
-	margin: 4px auto;
-	font-size: 20px;
-	color: unset;
+  margin: 4px auto;
+  font-size: 20px;
+  color: unset;
 }
 
 .name:hover {
-    text-decoration: none;
-    color: unset;
+  text-decoration: none;
+  color: unset;
 }
 
 #sideBar {
-    text-align: center;
-	background: #252526;
-	color: #CCCCCC;
-    border-radius: 8px 0 0 8px;
+  text-align: center;
+  background: #252526;
+  color: #cccccc;
+  border-radius: 8px 0 0 8px;
 }
 
 #navPic {
-    object-fit: contain;
-    max-width: 50%;
-    height: auto;
-    margin: 4px auto 0;
-    border-radius: 50%;
+  object-fit: contain;
+  max-width: 50%;
+  height: auto;
+  margin: 4px auto 0;
+  border-radius: 50%;
 }
 
 .nav-link {
-	background: none;
-	border: unset;
-	color: unset;
-	width: fit-content;
+  background: none;
+  border: unset;
+  color: unset;
+  width: fit-content;
 }
 
-.nav-link:active, .nav-link:focus {
-	outline: unset;
+.nav-link:active,
+.nav-link:focus {
+  outline: unset;
 }
 
 .nav-link:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
 #aboutClick:hover {
-    color: gold;
+  color: gold;
 }
 
 #portClick:hover {
-    color: gold;
+  color: gold;
 }
 
 #conClick:hover {
-    color: gold;
+  color: gold;
 }
 
 /*Main Body Styles*/
 
 .codeComment {
-	margin-bottom: unset;
-	/* display: inline-block; */
+  margin-bottom: unset;
+  /* display: inline-block; */
 }
 
 #mainBody {
-    border-radius: 0 8px 8px 0;
-	background: #1E1E1E;
-	padding-top: 16px;
+  border-radius: 0 8px 8px 0;
+  background: #1e1e1e;
+  padding-top: 16px;
 }
 
 .green {
-    color: rgb(106, 153, 85);
+  color: rgb(106, 153, 85);
 }
 
 .blue {
-    color: rgb(114, 157, 179);
+  color: rgb(114, 157, 179);
 }
 
 .white {
-    color: rgb(156, 202, 196);
+  color: rgb(156, 202, 196);
 }
 
 .red {
-    color: rgb(195, 96, 44);
+  color: rgb(195, 96, 44);
 }
 
 .editor {
-	line-height: 24px;
-	font-size: 15px;
+  line-height: 24px;
+  font-size: 15px;
 }
 
 .editor-brace {
-	line-height: 20px;
-	font-size: 13px;
+  line-height: 20px;
+  font-size: 13px;
 }
 
 /*Footer Styles*/
 .fixed-bottom {
-    text-align: center;
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    background-color: #666666;
-    color: #4aaaa5;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  background-color: #666666;
+  color: #4aaaa5;
 }
 
 /*Portfolio Styles*/
 .portfolioimages {
-    height: 120px;
-	width: 120px;
-	border: 1px solid gold;
-    object-fit: cover;
-    border-radius: 10px;
+  height: 120px;
+  width: 120px;
+  border: 1px solid gold;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .portfolioTitle {
-    background-color: steelblue;
-	color: white;
-	font-family: serif;
-	font-size: 14px;
-    width: 120px;
-	line-height: 17px;
-	border: 1px solid gold;
-	position: absolute;
-	margin-top: -40px;
-    text-align: center;
+  background-color: steelblue;
+  color: white;
+  font-family: serif;
+  font-size: 14px;
+  width: 120px;
+  line-height: 17px;
+  border: 1px solid gold;
+  position: absolute;
+  margin-top: -40px;
+  text-align: center;
 }
 
 .portfolioText {
-	line-height: 20px;
+  line-height: 20px;
 }
 
 /*About Styles*/
 .abouttext {
-	line-height: 1.5;
+  line-height: 1.5;
 }
 
 /*Contact Styles*/
 .contactwidth {
-    box-sizing: initial;
-    box-sizing: 70%;
+  box-sizing: initial;
+  box-sizing: 70%;
 }
 
 .contactLink {
-    color: rgb(114, 157, 179);
-	display: table-cell;
-	padding: 7px 0;
-    vertical-align: middle;
+  color: rgb(114, 157, 179);
+  display: table-cell;
+  padding: 7px 0;
+  vertical-align: middle;
 }
 
 @media only screen and (max-width: 550px) {
-    .portfolioimages {
-        height: 120px;
-        width: 120px;
-    }
-    .portfoliotext {
-        width: 120px;
-        margin: 110px 0px;
-        font-size: 14px;
-    }
+  .portfolioimages {
+    height: 120px;
+    width: 120px;
+  }
+  .portfoliotext {
+    width: 120px;
+    margin: 110px 0px;
+    font-size: 14px;
+  }
 }
 
 /*Remove off-center of header*/
 @media only screen and (min-width: 576px) {
-    .headerText {
-        text-align: initial;
-    }
+  .headerText {
+    text-align: initial;
+  }
 }
 
 /*Standardize sizing of navpic*/
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-    #navPic {
-        max-width: 70%;
-    }
+  #navPic {
+    max-width: 70%;
+  }
 }
 
 /* @media only screen and (max-width: 768px) {
