@@ -31,6 +31,14 @@ $(document).ready(function () {
     "testingJests",
     "feedingRedux",
     "hookingReact",
+    "goingHeadlessInStyle",
+    "findingNextInThePast",
+    "pickingATailwind",
+    "feedingHusky",
+    "breakingSnapshots",
+    "climbingWaterfalls",
+    "yeah...i'mGonnaNeedYouTo...",
+    "obeyingDodds",
   ];
 
   const funkChange = document.getElementById("funkChange");
@@ -135,22 +143,18 @@ $(document).ready(function () {
       "Developed an internal Content Management System for business and developer consumption to create reusable rule-based dynamic webpage layouts.",
       ["React", "Node.js", "Typescript", "Webpack", "Redux"],
     );
-    // var foreignExchange = new Card("https://arcane-gorge-10209.herokuapp.com", "global_assets/images/foreign.jpg", "Foreign Langs", "ForeignExchange");
-    // var nytnews = new Card("https://nytappbps.herokuapp.com", "global_assets/images/news.jpg", "Newspaper", "NYT", "NYT Search")
-    // var rpg = new Card("pages/rpg/index.html", "pages/rpg/assets/images/portrait/roy.jpg", "Fire Emblem RPG", "RPG Game");
-    // var rememorizer = new Card("https://bshin19.github.io/rememorizer/", "global_assets/images/rememorizer.jpg", "Jim Carrey Game", "Rememorizer");
-    // var psychic = new Card("pages/psychic/index.html", "pages/psychic/assets/images/ball.jpeg", "Pyschic Ball", "Psychic Game");
-    // var trivia = new Card("pages/trivia/index.html", "pages/trivia/assets/images/dragontrivia.jpg", "Dragon", "Myth Trivia");
-    // var bearCrystal = new Card("pages/crystal_math/index.html", "pages/crystal_math/assets/images/bear.jpg", "Bear", "Honey Bear");
-    // var gifResponse = new Card("pages/gifer/index.html", "pages/gifer/assets/images/hobbiton.jpg", "hobbiton", "Gifs of the Rings");
-    // var trainTime = new Card("pages/traintimer/index.html", "pages/traintimer/assets/images/traintrax.jpg", "train tracks", "Train Station");
-    // var crawlspace = new Card("pages/crawlspace/index.html", "pages/crawlspace/assets/images/background.jpg", "binary", "Crawlspace");
-    // var liriBot = new Card("https://github.com/bshin19/liribot", "global_assets/images/fruitbg.jpg", "fruit", "Liribot");
-    // var hangNode = new Card("https://github.com/bshin19/node-hangman", "global_assets/images/hangman.jpg", "hangman", "Hangman");
-    // var friender = new Card("https://bs-friender.herokuapp.com/", "global_assets/images/friends.jpg", "friends", "Friend-Finder");
-    // var burgerme = new Card("https://warm-shore-35019.herokuapp.com/", "global_assets/images/burger.jpg", "Burger", "Burger Me");
+
+    const targetDesignSystem = new PortfolioItem(
+      "",
+      "glabel_assets/images/tgt.png",
+      "",
+      "Design System",
+      "Maintained and improved a widely-utilized design system, including facilitating major releases leading to a greater than 60% reduction in the public-facing API and simpler developer experience.",
+      ["Nextjs", "React", "Typescript", "Styled Components", "Sass"],
+    );
 
     portfolioList.push(
+      targetDesignSystem,
       bestBuyPatternLibrary,
       bestBuyCMS,
       bestBuyGVP,
@@ -188,8 +192,8 @@ $(document).ready(function () {
         .addClass("red col-12")
         .html(function () {
           var intro = `<div>Hi there, I'm Beatrice.</div>
-						<p class="mb-0">I am a Software Engineer, Consultant, English buff, and casual writer.</p>
-						<p class="mb-0">I am currently engaged at Best Buy, where I develop for the front-end platform.</p>
+						<p class="mb-0">I am a Software Engineer, English buff, artist, and writer.</p>
+						<p class="mb-0">I develop design systems for Target~</p>
 					`;
 
           var favoriteLibraries = `
@@ -197,8 +201,10 @@ $(document).ready(function () {
 						<ul class="mb-0 pl-3">
 						<li>* Typescript</li>
 						<li>* React</li>
-						<li>* Redux</li>
 						<li>* Storybook.js</li>
+            <li>* Tailwind</li>
+						<li>* Headless UI</li>
+            <li>* Floating UI</li>
 						<li>* Webpack</li>
 						<li>* Material-ui</li>
 						</ul>
