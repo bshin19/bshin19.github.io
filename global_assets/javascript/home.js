@@ -89,26 +89,6 @@ $(document).ready(function () {
       this.technologies = technologies;
     }
 
-    const emblemAnims = new PortfolioItem(
-      "https://emblem-anims.herokuapp.com",
-      "global_assets/images/battlefield.jpg",
-      "Emblem Anims Link",
-      "Emblem Anims",
-      "Developed a website that presents an online community's custom assets in a more visually appealing way for downloading and comparison.",
-      [
-        "React",
-        "mySQL",
-        "Storybook.js",
-        "Typescript",
-        "Redux",
-        "Node.js",
-        "Express.js",
-        "CSS",
-        "HTML",
-        "Handlebars",
-      ],
-    );
-
     const bestBuyPatternLibrary = new PortfolioItem(
       "",
       "global_assets/images/bby.jpg",
@@ -158,7 +138,6 @@ $(document).ready(function () {
       bestBuyPatternLibrary,
       bestBuyCMS,
       bestBuyGVP,
-      emblemAnims,
     );
     // , foreignExchange, nytnews, rpg, rememorizer, psychic, trivia, bearCrystal, gifResponse, trainTime, crawlspace, liriBot, hangNode, friender, burgerme);
   }
